@@ -1,30 +1,19 @@
 package com.stradivarius.japanesestudy.ui.main
 
-import androidx.lifecycle.ViewModelProviders
-import android.os.Bundle
-import androidx.fragment.app.Fragment
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.stradivarius.japanesestudy.R
+import com.stradivarius.japanesestudy.databinding.MainFragmentBinding
+import com.stradivarius.japanesestudy.ui.main.common.BaseFragment
 
-class MainFragment : Fragment() {
+internal class MainFragment : BaseFragment<MainViewModel, MainFragmentBinding>() {
 
-    private lateinit var viewModel: MainViewModel
+    override fun provideViewModelClass(): Class<MainViewModel> = MainViewModel::class.java
 
-    override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
-    ): View {
-        return inflater.inflate(R.layout.main_fragment, container, false)
+    override fun provideLayoutResource(): Int = R.layout.main_fragment
+
+    override fun bindViewModel(viewModel: MainViewModel, bindingLayout: MainFragmentBinding) {
+        bindingLayout.model = viewModel
     }
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        viewModel = ViewModelProviders.of(this).get(MainViewModel::class.java)
-        // TODO: Use the ViewModel
-    }
 
     companion object {
         fun newInstance() = MainFragment()
