@@ -1,7 +1,7 @@
 package com.stradivarius.japanesestudy.ui.main.common.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.stradivarius.japanesestudy.ui.main.MainViewModel
+import com.stradivarius.japanesestudy.MainViewModel
 import java.lang.IllegalArgumentException
 
 internal class ViewModelFactoryImpl : ViewModelFactory {

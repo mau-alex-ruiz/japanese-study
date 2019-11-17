@@ -7,11 +7,6 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
-import androidx.lifecycle.ViewModel
-import androidx.lifecycle.ViewModelProviders
-import com.stradivarius.japanesestudy.R
-import com.stradivarius.japanesestudy.ui.main.MainViewModel
-import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactory
 import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
 
 internal abstract class BaseFragment<V, B> : Fragment()
@@ -23,23 +18,17 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
     protected abstract fun bindViewModel(viewModel: V, bindingLayout: B)
 
-    lateinit var viewModelFactory: ViewModelFactory
-
     lateinit var viewModel: V
 
-    protected lateinit var boundLayout: B
+    private lateinit var bindingLayout: B
 
-
-    @Suppress("UNCHECKED_CAST")
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModelFactory = ViewModelFactoryImpl()
-
-        viewModel = viewModelFactory.createViewModel(provideViewModelClass())
+        viewModel = ViewModelFactoryImpl().createViewModel(provideViewModelClass())
 
         viewModel.init()
-        bindViewModel(viewModel, boundLayout)
+        bindViewModel(viewModel, bindingLayout)
 
     }
 
@@ -48,14 +37,15 @@ internal abstract class BaseFragment<V, B> : Fragment()
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        boundLayout = DataBindingUtil.inflate<B>(
+        bindingLayout = DataBindingUtil.inflate<B>(
             layoutInflater,
             provideLayoutResource(),
             container,
             false
         )
-        boundLayout.setLifecycleOwner(this)
-        return boundLayout.root
+
+        bindingLayout.setLifecycleOwner(this)
+        return bindingLayout.root
     }
 
 }

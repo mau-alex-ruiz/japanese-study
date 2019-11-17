@@ -2,7 +2,6 @@ package com.stradivarius.japanesestudy
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import com.stradivarius.japanesestudy.ui.main.MainFragment
 
 class MainActivity : AppCompatActivity() {
 
@@ -11,7 +10,7 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.main_activity)
         if (savedInstanceState == null) {
             supportFragmentManager.beginTransaction()
-                .replace(R.id.container, MainFragment.newInstance())
+                .replace(R.id.container, MainFragment.newInstance(applicationContext))
                 .commitNow()
         }
     }
