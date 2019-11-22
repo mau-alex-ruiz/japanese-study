@@ -2,43 +2,52 @@
 
 <layout
     xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:bind="http://schemas.android.com/tools">
 
     <data>
         <variable
-            name="model" type="com.stradivarius.japanesestudy.MainViewModel"
+            name="model" type="com.stradivarius.japanesestudy.ui.main.MainViewModel"
         />
     </data>
 
-    <LinearLayout
-        android:id="@+id/heck"
+    <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:weightSum="4"
-        android:orientation="vertical" >
+        android:layout_height="match_parent">
 
-        <include
-            android:id="@+id/duo_vocab_card"
-            layout="@layout/card_fragment"
-        />
+        <LinearLayout
+            android:id="@+id/card_list"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:weightSum="4"
+            android:orientation="vertical" >
 
-        <include
-            android:id="@+id/radicals_card"
-            layout="@layout/card_fragment"
-        />
+            <include
+                android:id="@+id/duo_vocab_card"
+                layout="@layout/card_fragment"
+                />
 
-        <include
-            android:id="@+id/kanji_card"
-            layout="@layout/card_fragment"
-        />
+            <include
+                android:id="@+id/radicals_card"
+                layout="@layout/card_fragment"
+                />
 
-        <include
-            android:id="@+id/vocab_card"
-            layout="@layout/card_fragment"
-        />
+            <include
+                android:id="@+id/kanji_card"
+                layout="@layout/card_fragment"
+                />
 
-    </LinearLayout>
+            <include
+                android:id="@+id/vocab_card"
+                layout="@layout/card_fragment"
+                />
+
+        </LinearLayout>
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+
+
 
 </layout>
 

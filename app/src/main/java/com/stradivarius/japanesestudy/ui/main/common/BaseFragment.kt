@@ -1,13 +1,18 @@
 package com.stradivarius.japanesestudy.ui.main.common
 
+import android.content.Context
 import android.os.Bundle
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
+import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
+import com.stradivarius.japanesestudy.ui.main.utils.AsyncDataBaseLoader
 
 internal abstract class BaseFragment<V, B> : Fragment()
     where V : BaseViewModel, B: ViewDataBinding {
@@ -25,7 +30,7 @@ internal abstract class BaseFragment<V, B> : Fragment()
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
 
-        viewModel = ViewModelFactoryImpl().createViewModel(provideViewModelClass())
+        viewModel = ViewModelFactoryImpl(LocalSessionWrapperImpl).createViewModel(provideViewModelClass())
 
         viewModel.init()
         bindViewModel(viewModel, bindingLayout)

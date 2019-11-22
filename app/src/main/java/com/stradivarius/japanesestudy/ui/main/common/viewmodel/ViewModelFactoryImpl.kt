@@ -1,15 +1,18 @@
 package com.stradivarius.japanesestudy.ui.main.common.viewmodel
 
 import androidx.lifecycle.ViewModel
-import com.stradivarius.japanesestudy.MainViewModel
+import com.stradivarius.japanesestudy.ui.main.MainViewModel
+import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 import java.lang.IllegalArgumentException
 
-internal class ViewModelFactoryImpl : ViewModelFactory {
+internal class ViewModelFactoryImpl(
+    private val repository: LocalSessionWrapperImpl
+) : ViewModelFactory {
 
     override fun <I : ViewModel> createViewModel(clazz: Class<I>) : I {
         @Suppress("UNCHECKED_CAST")
         return when (clazz) {
-            MainViewModel::class.java -> MainViewModel()
+            MainViewModel::class.java -> MainViewModel(repository)
 
             else -> throw IllegalArgumentException(
                 "No class found for $clazz. See ${this::class.java}"
