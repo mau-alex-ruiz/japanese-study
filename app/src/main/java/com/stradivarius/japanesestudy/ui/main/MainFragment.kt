@@ -1,8 +1,10 @@
 package com.stradivarius.japanesestudy.ui.main
 
 import android.content.Context
+import android.content.Intent
 import android.os.Environment
 import android.util.Log
+import android.view.View
 import androidx.room.Room
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
@@ -23,11 +25,25 @@ internal class MainFragment(context: Context) : BaseFragment<MainViewModel, Main
 
     override fun bindViewModel(viewModel: MainViewModel, bindingLayout: MainFragmentBinding) {
         bindingLayout.model = viewModel
-        bindingLayout.kanjiCard.cardTitle.text = "Kanji"
+        bindingLayout.vocabCard.cardView.setOnClickListener { vocabCardClick() }
+        bindingLayout.kanjiCard.cardView.setOnClickListener { kanjiCardClick() }
+        bindingLayout.radicalsCard.cardView.setOnClickListener { radicalCardClick() }
     }
 
     companion object {
         fun newInstance(context: Context) =
             MainFragment(context)
+    }
+
+    fun vocabCardClick() {
+
+    }
+
+    fun kanjiCardClick() {
+
+    }
+
+    fun radicalCardClick() {
+
     }
 }
