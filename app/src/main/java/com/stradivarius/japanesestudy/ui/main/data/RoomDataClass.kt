@@ -5,7 +5,7 @@ import androidx.room.*
 /**
  * Database Declaration
  */
-@Database(entities = arrayOf(Kanji::class, Radical::class, Vocabulary::class), version = 1)
+@Database(entities = [Kanji::class, Radical::class, Vocabulary::class], version = 1)
 abstract class AppDataBase : RoomDatabase() {
     abstract fun kanjiDao() : KanjiDao
     abstract fun radicalDao() : RadicalDao

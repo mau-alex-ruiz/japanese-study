@@ -1,18 +1,17 @@
 package com.stradivarius.japanesestudy.ui.main.common
 
-import android.content.Context
 import android.os.Bundle
-import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
-import com.stradivarius.japanesestudy.ui.main.utils.AsyncDataBaseLoader
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorFragment
 
 internal abstract class BaseFragment<V, B> : Fragment()
     where V : BaseViewModel, B: ViewDataBinding {
@@ -34,7 +33,6 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
         viewModel.init()
         bindViewModel(viewModel, bindingLayout)
-
     }
 
     override fun onCreateView(
@@ -51,6 +49,15 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
         bindingLayout.setLifecycleOwner(this)
         return bindingLayout.root
+    }
+
+    fun showFragment(fragment: Fragment, tag: String = "") {
+        activity?.supportFragmentManager?.beginTransaction()
+            ?.replace(
+                R.id.container,
+                fragment,
+                tag
+            )?.addToBackStack("")?.commit()
     }
 
 }
