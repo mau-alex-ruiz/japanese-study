@@ -23,22 +23,22 @@
 
             <include
                 android:id="@+id/vocab_card"
-                layout="@layout/card_fragment"
+                layout="@layout/menu_card"
                 />
 
             <include
                 android:id="@+id/kanji_card"
-                layout="@layout/card_fragment"
+                layout="@layout/menu_card"
                 />
 
             <include
                 android:id="@+id/radicals_card"
-                layout="@layout/card_fragment"
+                layout="@layout/menu_card"
                 />
 
             <include
                 android:id="@+id/duo_vocab_card"
-                layout="@layout/card_fragment"
+                layout="@layout/menu_card"
                 />
 
         </LinearLayout>

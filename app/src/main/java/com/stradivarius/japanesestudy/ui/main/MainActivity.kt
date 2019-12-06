@@ -2,17 +2,13 @@ package com.stradivarius.japanesestudy.ui.main
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import com.stradivarius.japanesestudy.R
-import com.stradivarius.japanesestudy.ui.main.common.BaseToolbarFragment
 import com.stradivarius.japanesestudy.ui.main.data.AppDataBase
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
-import com.stradivarius.japanesestudy.ui.main.ui.LoadingFragment
-import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorFragment
+import com.stradivarius.japanesestudy.ui.main.ui.loading.LoadingFragment
 import kotlinx.android.synthetic.main.main_activity.*
-import java.util.logging.Level
 
 class MainActivity : AppCompatActivity() {
 

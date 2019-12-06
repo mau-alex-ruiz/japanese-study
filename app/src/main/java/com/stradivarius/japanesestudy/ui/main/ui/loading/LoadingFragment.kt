@@ -1,4 +1,4 @@
-package com.stradivarius.japanesestudy.ui.main.ui
+package com.stradivarius.japanesestudy.ui.main.ui.loading
 
 import android.os.Bundle
 import android.view.LayoutInflater

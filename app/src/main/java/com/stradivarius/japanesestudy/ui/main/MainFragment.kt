@@ -1,15 +1,10 @@
 package com.stradivarius.japanesestudy.ui.main
 
 import android.content.Context
-import android.util.Log
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.MainFragmentBinding
 import com.stradivarius.japanesestudy.ui.main.common.BaseFragment
-import com.stradivarius.japanesestudy.ui.main.data.Radical
-import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
-import com.stradivarius.japanesestudy.ui.main.ui.LoadingFragment
 import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorFragment
-import java.util.logging.Level
 
 internal class MainFragment(context: Context) : BaseFragment<MainViewModel, MainFragmentBinding>() {
 
