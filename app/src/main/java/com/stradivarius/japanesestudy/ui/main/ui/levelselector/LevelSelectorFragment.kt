@@ -15,7 +15,7 @@ internal class LevelSelectorFragment(cardType: Int)
     : BaseToolbarFragment<LevelSelectorViewModel, LevelSelectorFragmentBinding>() {
 
     private lateinit var recyclerView: RecyclerView
-    private lateinit var viewAdapter: RecyclerView.Adapter<*>
+    private lateinit var viewAdapter: RecyclerView.Adapter<LevelSelectorAdapter.MyViewHolder>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     override fun provideViewModelClass(): Class<LevelSelectorViewModel> = LevelSelectorViewModel::class.java
