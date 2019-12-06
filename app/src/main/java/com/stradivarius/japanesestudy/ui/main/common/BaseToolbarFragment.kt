@@ -15,14 +15,14 @@ internal abstract class BaseToolbarFragment<V, B> : BaseFragment<V, B>()
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        setToolbarBackButtonEnabled(true)
+        setToolbarBackButtonEnabled()
         return super.onCreateView(inflater, container, savedInstanceState)
     }
 
-    private fun setToolbarBackButtonEnabled(enable: Boolean) {
+    private fun setToolbarBackButtonEnabled() {
         (activity as AppCompatActivity).supportActionBar.let {
-            it?.setDisplayHomeAsUpEnabled(enable)
-            it?.setDisplayShowHomeEnabled(enable)
+            it?.setDisplayHomeAsUpEnabled(true)
+            it?.setDisplayShowHomeEnabled(true)
         }
     }
 }

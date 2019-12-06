@@ -46,7 +46,6 @@ internal abstract class BaseFragment<V, B> : Fragment()
             container,
             false
         )
-
         bindingLayout.setLifecycleOwner(this)
         return bindingLayout.root
     }
