@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
+        setTitle(R.string.app_name)
         setupToolbar(toolbar)
         if (savedInstanceState == null || LocalSessionWrapperImpl.database.value == null) {
             LocalSessionWrapperImpl.database.observeForever(databaseLoadObserver)
@@ -54,6 +55,7 @@ class MainActivity : AppCompatActivity() {
         toolbar.setNavigationOnClickListener {
             with(supportFragmentManager) {
                 if (this.fragments[this.backStackEntryCount - 1].tag == "FromMainFragment") {
+                    setTitle(R.string.app_name)
                     supportActionBar?.setDisplayHomeAsUpEnabled(false)
                     supportActionBar?.setDisplayShowHomeEnabled(false)
                 }

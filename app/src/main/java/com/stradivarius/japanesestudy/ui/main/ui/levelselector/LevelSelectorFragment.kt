@@ -32,9 +32,10 @@ internal class LevelSelectorFragment(cardType: Int)
         savedInstanceState: Bundle?
     ): View {
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
+//        activity?.setTitle(R.string.kanji_card)
 
         viewManager = LinearLayoutManager(context)
-        viewAdapter = LevelSelectorAdapter(Levels.levels)
+        viewAdapter = LevelSelectorAdapter(Levels.levels, fragmentManager)
 
         recyclerView = rootView.findViewById<RecyclerView>(R.id.level_selector_recycler_view).apply {
             setHasFixedSize(true)

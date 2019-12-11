@@ -2,12 +2,8 @@
 
 <layout>
     <data>
-        <variable
-            name="model" type="com.stradivarius.japanesestudy.ui.main.MainViewModel"
-        />
-        <variable
-            name="cardType" type="Integer"
-        />
+        <variable name="model" type="com.stradivarius.japanesestudy.ui.main.MainViewModel" />
+        <variable name="cardType" type="Integer" />
     </data>
 
     <androidx.cardview.widget.CardView
