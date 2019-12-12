@@ -6,6 +6,8 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.DialogFragment
 import com.stradivarius.japanesestudy.R
+import com.stradivarius.japanesestudy.ui.main.data.Levels
+import kotlinx.android.synthetic.main.level_selector_dialog.view.*
 
 class LevelSelectorDialog : DialogFragment() {
 
@@ -14,7 +16,18 @@ class LevelSelectorDialog : DialogFragment() {
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        return inflater.inflate(R.layout.level_selector_dialog, container)
+        val dialog = inflater.inflate(R.layout.level_selector_dialog, container)
+        dialog.level_category_text.text = Levels.levels[position!!].first
+        return dialog
+    }
+
+    companion object {
+
+        private var position: Int? = null
+        fun newInstance(cardPosition: Int) : LevelSelectorDialog {
+            position = cardPosition
+            return LevelSelectorDialog()
+        }
     }
 
 }

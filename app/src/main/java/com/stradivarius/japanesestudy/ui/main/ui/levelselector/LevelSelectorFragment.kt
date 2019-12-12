@@ -36,7 +36,7 @@ internal class LevelSelectorFragment(val cardType: Int)
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
         setToolbarTitle()
         viewManager = LinearLayoutManager(context)
-        viewAdapter = LevelSelectorAdapter(Levels.levels, fragmentManager)
+        viewAdapter = LevelSelectorAdapter(Levels.levels, fragmentManager!!)
 
         recyclerView = rootView.findViewById<RecyclerView>(R.id.level_selector_recycler_view).apply {
             setHasFixedSize(true)

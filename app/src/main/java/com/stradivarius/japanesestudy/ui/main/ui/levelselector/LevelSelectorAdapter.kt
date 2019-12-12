@@ -10,7 +10,7 @@ import kotlinx.android.synthetic.main.level_selector_card.view.*
 
 class LevelSelectorAdapter(
     private val data: List<Pair<String, List<Int>>>,
-    private val fragmentManager: FragmentManager?
+    private val fragmentManager: FragmentManager
 ) : RecyclerView.Adapter<LevelSelectorAdapter.MyViewHolder>() {
 
     class MyViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardView)
@@ -25,8 +25,8 @@ class LevelSelectorAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         holder.cardView.level_selector_text.text = data[position].first
         holder.cardView.setOnClickListener {
-            val dialog = LevelSelectorDialog()
-            dialog.show(fragmentManager!!, "")
+            val dialog = LevelSelectorDialog.newInstance(position)
+            dialog.show(fragmentManager, "")
         }
     }
 
