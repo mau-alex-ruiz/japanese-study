@@ -28,9 +28,9 @@ internal class MainFragment(context: Context) : BaseFragment<MainViewModel, Main
     }
 
     companion object {
-        private const val VOCAB_CARD = 1
-        private const val KANJI_CARD = 2
-        private const val RADICAL_CARD = 3
+        const val VOCAB_CARD = 1
+        const val KANJI_CARD = 2
+        const val RADICAL_CARD = 3
 
         fun newInstance(context: Context) =
             MainFragment(context)

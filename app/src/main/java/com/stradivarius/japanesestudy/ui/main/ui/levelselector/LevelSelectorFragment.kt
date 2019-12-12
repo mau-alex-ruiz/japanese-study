@@ -8,10 +8,12 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.LevelSelectorFragmentBinding
+import com.stradivarius.japanesestudy.ui.main.MainFragment
 import com.stradivarius.japanesestudy.ui.main.common.BaseToolbarFragment
 import com.stradivarius.japanesestudy.ui.main.data.Levels
+import java.lang.IllegalArgumentException
 
-internal class LevelSelectorFragment(cardType: Int)
+internal class LevelSelectorFragment(val cardType: Int)
     : BaseToolbarFragment<LevelSelectorViewModel, LevelSelectorFragmentBinding>() {
 
     private lateinit var recyclerView: RecyclerView
@@ -32,8 +34,7 @@ internal class LevelSelectorFragment(cardType: Int)
         savedInstanceState: Bundle?
     ): View {
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
-//        activity?.setTitle(R.string.kanji_card)
-
+        setToolbarTitle()
         viewManager = LinearLayoutManager(context)
         viewAdapter = LevelSelectorAdapter(Levels.levels, fragmentManager)
 
@@ -44,6 +45,16 @@ internal class LevelSelectorFragment(cardType: Int)
         }
 
         return rootView
+    }
+
+    private fun setToolbarTitle() {
+        val title = when (cardType) {
+            MainFragment.VOCAB_CARD -> R.string.vocabulary_card
+            MainFragment.KANJI_CARD -> R.string.kanji_card
+            MainFragment.RADICAL_CARD -> R.string.radicals_card
+            else -> throw IllegalArgumentException("Incorrect card type.")
+        }
+        activity?.setTitle(title)
     }
 
     companion object {
