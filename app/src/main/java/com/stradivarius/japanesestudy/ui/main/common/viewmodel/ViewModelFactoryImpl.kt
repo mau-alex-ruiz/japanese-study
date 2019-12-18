@@ -15,10 +15,7 @@ internal class ViewModelFactoryImpl(
         @Suppress("UNCHECKED_CAST")
         return when (clazz) {
             MainViewModel::class.java -> MainViewModel(repository)
-            LevelSelectorViewModel::class.java -> LevelSelectorViewModel(
-                repository
-            )
-            LevelSelectorDialogViewModel::class.java -> LevelSelectorDialogViewModel(repository)
+            LevelSelectorViewModel::class.java -> LevelSelectorViewModel(repository)
             else -> throw IllegalArgumentException(
                 "No class found for $clazz. See ${this::class.java}"
             )

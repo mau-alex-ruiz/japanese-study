@@ -3,10 +3,9 @@ package com.stradivarius.japanesestudy.ui.main.utils
 import android.content.Context
 import android.os.AsyncTask
 import android.util.Log
-import android.widget.ProgressBar
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
-class AsyncDataBaseLoader : AsyncTask<Context, Void, String>() {
+internal class AsyncDataBaseLoader : AsyncTask<Context, Void, String>() {
 
     override fun onPreExecute() {
         super.onPreExecute()

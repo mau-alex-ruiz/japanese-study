@@ -11,11 +11,11 @@ import java.io.File
 
 internal object LocalSessionWrapperImpl : LocalSessionWrapper {
 
-    const val DATABASE_FILE = "japanese-study.db"
+    private const val DATABASE_FILE = "japanese-study.db"
 
-    var database = MutableLiveData<AppDataBase>()
+    val database = MutableLiveData<AppDataBase>()
 
-    fun init(context: Context?) {
+    override fun init(context: Context?) {
         if (context != null) {
 
             val tempDatabase: AppDataBase

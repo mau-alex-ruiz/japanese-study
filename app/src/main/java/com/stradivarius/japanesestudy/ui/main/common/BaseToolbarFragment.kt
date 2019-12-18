@@ -6,11 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.ViewDataBinding
-import com.stradivarius.japanesestudy.R
-import com.stradivarius.japanesestudy.ui.main.MainFragment
+import androidx.lifecycle.ViewModel
 
 internal abstract class BaseToolbarFragment<V, B> : BaseFragment<V, B>()
-    where V : BaseViewModel, B : ViewDataBinding {
+    where V : ViewModel, B : ViewDataBinding {
 
     override fun onCreateView(
         inflater: LayoutInflater,

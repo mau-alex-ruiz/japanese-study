@@ -38,8 +38,7 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
             false
         )
         setupAdapter()
-        bindingLayout.model = ViewModelFactoryImpl(LocalSessionWrapperImpl)
-            .createViewModel(provideViewModelClass())
+        bindingLayout.model = LevelSelectorDialogViewModel(LocalSessionWrapperImpl, dialog!!)
         bindingLayout.levelCategory.text = levelCategory
         bindingLayout.setLifecycleOwner(this)
         return bindingLayout.root

@@ -7,12 +7,13 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
+import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
 internal abstract class BaseFragment<V, B> : Fragment()
-    where V : BaseViewModel, B: ViewDataBinding {
+    where V : ViewModel, B: ViewDataBinding {
 
     protected abstract fun provideViewModelClass(): Class<V>
 
@@ -29,7 +30,6 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
         viewModel = ViewModelFactoryImpl(LocalSessionWrapperImpl).createViewModel(provideViewModelClass())
 
-        viewModel.init()
         bindViewModel(viewModel, bindingLayout)
     }
 

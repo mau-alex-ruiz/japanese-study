@@ -1,14 +1,11 @@
 package com.stradivarius.japanesestudy.ui.main.ui.levelselector.main
 
-import com.stradivarius.japanesestudy.ui.main.common.BaseViewModel
+import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
 internal class LevelSelectorViewModel(
     private val repository : LocalSessionWrapperImpl
-) : BaseViewModel(repository) {
+) : ViewModel() {
 
-    override fun init() {
-
-    }
 
 }

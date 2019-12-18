@@ -1,16 +1,18 @@
 package com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog
 
+import android.app.Dialog
 import android.util.Log
 import android.view.View
-import com.stradivarius.japanesestudy.ui.main.common.BaseViewModel
+import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
 internal class LevelSelectorDialogViewModel(
-    private val repository : LocalSessionWrapperImpl
-) : BaseViewModel(repository) {
+    private val repository : LocalSessionWrapperImpl,
+    private val dialog: Dialog
+) : ViewModel() {
 
-    override fun init() {
-
+    init {
+        Log.e("test", "test")
     }
 
     fun onCheckboxClick(view: View) {
@@ -19,6 +21,7 @@ internal class LevelSelectorDialogViewModel(
 
     fun onSaveButtonClick(view: View) {
         Log.e("yeet", "klfjdslkfjd")
+        dialog.dismiss()
     }
 
 }
