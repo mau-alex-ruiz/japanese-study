@@ -1,67 +1,87 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout
-    xmlns:android="http://schemas.android.com/apk/res/android"
-    android:orientation="vertical"
-    android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:splitMotionEvents="false">
 
-    <TextView
-        android:id="@+id/level_category_text"
-        android:gravity="center_horizontal"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text=""/>
+<layout>
 
-    <CheckBox
-        android:id="@+id/checkbox_1"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_2"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_3"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_4"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_5"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_6"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_7"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_8"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_9"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
-    <CheckBox
-        android:id="@+id/checkbox_10"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="jfkldsajfdlsa"/>
+    <data>
+        <variable
+            name="model"
+            type="com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel" />
+    </data>
 
-</LinearLayout>
+    <LinearLayout
+        xmlns:android="http://schemas.android.com/apk/res/android"
+        android:orientation="vertical"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:splitMotionEvents="false">
+
+        <TextView
+            android:id="@+id/level_category_text"
+            android:gravity="center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text=""/>
+
+        <CheckBox
+            android:id="@+id/checkbox_1"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_2"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_3"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_4"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_5"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_6"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_7"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_8"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_9"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+        <CheckBox
+            android:id="@+id/checkbox_10"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="jfkldsajfdlsa"/>
+
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/checkbox_submit_button"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/button_submit"
+            android:onClick="@{model.onSaveButtonClick}"/>
+
+    </LinearLayout>
+
+</layout>
+
+
