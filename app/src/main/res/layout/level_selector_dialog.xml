@@ -3,17 +3,35 @@
 <layout xmlns:android="http://schemas.android.com/apk/res/android">
 
     <data>
-        <variable
-            name="model"
-            type="com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel" />
+        <variable name="model" type="com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel" />
     </data>
 
-    <androidx.recyclerview.widget.RecyclerView
-        android:id="@+id/level_selector_dialog_recycler"
-        android:scrollbars="vertical"
+    <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:splitMotionEvents="false" />
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/level_category"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_horizontal" />
+
+        <androidx.recyclerview.widget.RecyclerView
+            android:id="@+id/level_selector_dialog_recycler"
+            android:scrollbars="vertical"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:splitMotionEvents="false" />
+
+        <Button
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:text="@string/button_submit" />
+
+    </LinearLayout>
+
+
 
 </layout>
 

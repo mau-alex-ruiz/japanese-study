@@ -40,6 +40,7 @@ internal class LevelSelectorDialog : DialogFragment() {
             LevelSelectorViewModel(
                 LocalSessionWrapperImpl
             )
+        bindingLayout.levelCategory.text = levelCategory
         bindingLayout.setLifecycleOwner(this)
         return bindingLayout.root
     }

@@ -20,7 +20,7 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
     protected abstract fun bindViewModel(viewModel: V, bindingLayout: B)
 
-    lateinit var viewModel: V
+    private lateinit var viewModel: V
 
     private lateinit var bindingLayout: B
 
@@ -38,7 +38,7 @@ internal abstract class BaseFragment<V, B> : Fragment()
         container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
-        bindingLayout = DataBindingUtil.inflate<B>(
+        bindingLayout = DataBindingUtil.inflate(
             layoutInflater,
             provideLayoutResource(),
             container,
