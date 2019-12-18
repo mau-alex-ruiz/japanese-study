@@ -6,13 +6,13 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
-import com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog.LevelSelectorDialog
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog.LevelSelectorDialogFragment
 import kotlinx.android.synthetic.main.level_selector_card.view.*
 
-internal class LevelSelectorAdapter(
+internal class LevelSelectorMainAdapter(
     private val data: List<String>,
     private val fragmentManager: FragmentManager
-) : RecyclerView.Adapter<LevelSelectorAdapter.MyViewHolder>() {
+) : RecyclerView.Adapter<LevelSelectorMainAdapter.MyViewHolder>() {
 
     class MyViewHolder(val cardView: CardView) : RecyclerView.ViewHolder(cardView)
 
@@ -29,7 +29,7 @@ internal class LevelSelectorAdapter(
         val levelCategory = data[position]
         holder.cardView.level_selector_text.text = levelCategory
         holder.cardView.setOnClickListener {
-            val dialog = LevelSelectorDialog.newInstance(levelCategory)
+            val dialog = LevelSelectorDialogFragment.newInstance(levelCategory)
             dialog.show(fragmentManager, "")
         }
     }

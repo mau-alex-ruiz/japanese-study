@@ -3,7 +3,8 @@ package com.stradivarius.japanesestudy.ui.main.common.viewmodel
 import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.ui.main.MainViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
-import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.main.LevelSelectorViewModel
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog.LevelSelectorDialogViewModel
 import java.lang.IllegalArgumentException
 
 internal class ViewModelFactoryImpl(
@@ -14,7 +15,10 @@ internal class ViewModelFactoryImpl(
         @Suppress("UNCHECKED_CAST")
         return when (clazz) {
             MainViewModel::class.java -> MainViewModel(repository)
-            LevelSelectorViewModel::class.java -> LevelSelectorViewModel(repository)
+            LevelSelectorViewModel::class.java -> LevelSelectorViewModel(
+                repository
+            )
+            LevelSelectorDialogViewModel::class.java -> LevelSelectorDialogViewModel(repository)
             else -> throw IllegalArgumentException(
                 "No class found for $clazz. See ${this::class.java}"
             )

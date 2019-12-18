@@ -10,17 +10,19 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.LevelSelectorDialogBinding
+import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
 import com.stradivarius.japanesestudy.ui.main.data.Levels
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
-import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel
 
-internal class LevelSelectorDialog : DialogFragment() {
+internal class LevelSelectorDialogFragment : DialogFragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<LevelSelectorDialogAdapter.MyViewHolder>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
     private fun provideLayoutResource() = R.layout.level_selector_dialog
+
+    private fun provideViewModelClass() = LevelSelectorDialogViewModel::class.java
 
     private lateinit var bindingLayout: LevelSelectorDialogBinding
 
@@ -36,10 +38,8 @@ internal class LevelSelectorDialog : DialogFragment() {
             false
         )
         setupAdapter()
-        bindingLayout.model =
-            LevelSelectorViewModel(
-                LocalSessionWrapperImpl
-            )
+        bindingLayout.model = ViewModelFactoryImpl(LocalSessionWrapperImpl)
+            .createViewModel(provideViewModelClass())
         bindingLayout.levelCategory.text = levelCategory
         bindingLayout.setLifecycleOwner(this)
         return bindingLayout.root
@@ -60,9 +60,9 @@ internal class LevelSelectorDialog : DialogFragment() {
 
     companion object {
         private var levelCategory: String? = null
-        fun newInstance(levelCategory: String) : LevelSelectorDialog {
+        fun newInstance(levelCategory: String) : LevelSelectorDialogFragment {
             this.levelCategory = levelCategory
-            return LevelSelectorDialog()
+            return LevelSelectorDialogFragment()
         }
     }
 }

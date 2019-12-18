@@ -1,11 +1,11 @@
-package com.stradivarius.japanesestudy.ui.main.ui.levelselector
+package com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog
 
 import android.util.Log
 import android.view.View
 import com.stradivarius.japanesestudy.ui.main.common.BaseViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
-internal class LevelSelectorViewModel(
+internal class LevelSelectorDialogViewModel(
     private val repository : LocalSessionWrapperImpl
 ) : BaseViewModel(repository) {
 

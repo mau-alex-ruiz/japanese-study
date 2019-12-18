@@ -4,7 +4,7 @@ import android.content.Context
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.MainFragmentBinding
 import com.stradivarius.japanesestudy.ui.main.common.BaseFragment
-import com.stradivarius.japanesestudy.ui.main.ui.levelselector.main.LevelSelectorFragment
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.main.LevelSelectorMainFragment
 
 internal class MainFragment(context: Context) : BaseFragment<MainViewModel, MainFragmentBinding>() {
 
@@ -20,7 +20,7 @@ internal class MainFragment(context: Context) : BaseFragment<MainViewModel, Main
     }
 
     fun startCardFragment(cardType: Int) {
-        showFragment(LevelSelectorFragment.newInstance(cardType), "FromMainFragment")
+        showFragment(LevelSelectorMainFragment.newInstance(cardType), "FromMainFragment")
     }
 
     companion object {
