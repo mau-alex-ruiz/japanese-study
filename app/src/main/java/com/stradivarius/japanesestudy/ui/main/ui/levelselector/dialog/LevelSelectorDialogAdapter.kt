@@ -4,14 +4,12 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.CheckBox
-import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
 import kotlinx.android.synthetic.main.level_selector_checkbox.view.*
 
 internal class LevelSelectorDialogAdapter(
-    private val data: List<Int>,
-    private val fragmentManager: FragmentManager
+    private val data: List<Int>
 ) : RecyclerView.Adapter<LevelSelectorDialogAdapter.MyViewHolder>() {
 
     class MyViewHolder(val view: View) : RecyclerView.ViewHolder(view)

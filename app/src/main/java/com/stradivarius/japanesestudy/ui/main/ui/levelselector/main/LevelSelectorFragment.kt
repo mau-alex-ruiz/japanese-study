@@ -39,7 +39,7 @@ internal class LevelSelectorFragment(val cardType: Int)
         viewManager = LinearLayoutManager(context)
         viewAdapter =
             LevelSelectorAdapter(
-                Levels.levels.toList(),
+                Levels.levelCategories,
                 fragmentManager!!
             )
 

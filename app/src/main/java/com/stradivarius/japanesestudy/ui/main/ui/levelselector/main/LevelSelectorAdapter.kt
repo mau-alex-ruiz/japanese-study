@@ -10,7 +10,7 @@ import com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog.LevelSelec
 import kotlinx.android.synthetic.main.level_selector_card.view.*
 
 internal class LevelSelectorAdapter(
-    private val data: List<Pair<String, List<Int>>>,
+    private val data: List<String>,
     private val fragmentManager: FragmentManager
 ) : RecyclerView.Adapter<LevelSelectorAdapter.MyViewHolder>() {
 
@@ -26,7 +26,7 @@ internal class LevelSelectorAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val levelCategory = data[position].first
+        val levelCategory = data[position]
         holder.cardView.level_selector_text.text = levelCategory
         holder.cardView.setOnClickListener {
             val dialog = LevelSelectorDialog.newInstance(levelCategory)

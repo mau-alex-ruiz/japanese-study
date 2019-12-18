@@ -4,5 +4,4 @@
     android:id="@+id/level_selector_checkbox"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
-
 </CheckBox>

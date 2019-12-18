@@ -14,14 +14,13 @@ import com.stradivarius.japanesestudy.ui.main.data.Levels
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel
 
-
 internal class LevelSelectorDialog : DialogFragment() {
 
     private lateinit var recyclerView: RecyclerView
     private lateinit var viewAdapter: RecyclerView.Adapter<LevelSelectorDialogAdapter.MyViewHolder>
     private lateinit var viewManager: RecyclerView.LayoutManager
 
-    fun provideLayoutResource() = R.layout.level_selector_dialog
+    private fun provideLayoutResource() = R.layout.level_selector_dialog
 
     private lateinit var bindingLayout: LevelSelectorDialogBinding
 
@@ -36,17 +35,18 @@ internal class LevelSelectorDialog : DialogFragment() {
             container,
             false
         )
+        setupAdapter()
         bindingLayout.model =
             LevelSelectorViewModel(
                 LocalSessionWrapperImpl
             )
         bindingLayout.setLifecycleOwner(this)
+        return bindingLayout.root
+    }
 
+    private fun setupAdapter() {
         viewManager = LinearLayoutManager(context)
-        viewAdapter = LevelSelectorDialogAdapter(
-            Levels.levels.get(levelCategory)!!,
-            fragmentManager!!
-        )
+        viewAdapter = LevelSelectorDialogAdapter(Levels.levels[levelCategory]!!)
 
         recyclerView = bindingLayout.root.findViewById<RecyclerView>(
             R.id.level_selector_dialog_recycler
@@ -55,17 +55,13 @@ internal class LevelSelectorDialog : DialogFragment() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
-
-        return bindingLayout.root
     }
 
     companion object {
-
         private var levelCategory: String? = null
         fun newInstance(levelCategory: String) : LevelSelectorDialog {
             this.levelCategory = levelCategory
             return LevelSelectorDialog()
         }
     }
-
 }
