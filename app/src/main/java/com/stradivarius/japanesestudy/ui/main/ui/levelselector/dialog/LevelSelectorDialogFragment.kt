@@ -22,9 +22,9 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
 
     private fun provideLayoutResource() = R.layout.level_selector_dialog
 
-    private fun provideViewModelClass() = LevelSelectorDialogViewModel::class.java
-
     private lateinit var bindingLayout: LevelSelectorDialogBinding
+
+    private lateinit var viewmodel: LevelSelectorDialogViewModel
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -37,16 +37,17 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
             container,
             false
         )
+        viewmodel = LevelSelectorDialogViewModel(LocalSessionWrapperImpl, dialog!!)
+        viewmodel.dialogTitle.postValue(levelCategory)
+        bindingLayout.model = viewmodel
         setupAdapter()
-        bindingLayout.model = LevelSelectorDialogViewModel(LocalSessionWrapperImpl, dialog!!)
-        bindingLayout.levelCategory.text = levelCategory
         bindingLayout.setLifecycleOwner(this)
         return bindingLayout.root
     }
 
     private fun setupAdapter() {
         viewManager = LinearLayoutManager(context)
-        viewAdapter = LevelSelectorDialogAdapter(Levels.levels[levelCategory]!!)
+        viewAdapter = LevelSelectorDialogAdapter(Levels.levels[levelCategory]!!, viewmodel)
 
         recyclerView = bindingLayout.root.findViewById<RecyclerView>(
             R.id.level_selector_dialog_recycler

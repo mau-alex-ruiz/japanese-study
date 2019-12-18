@@ -10,3 +10,10 @@ internal fun menuCardText(textView: TextView, cardType: Int) {
         textView.text = textView.resources.getString(it)
     }
 }
+
+@BindingAdapter("app:dialogTitleText")
+internal fun dialogTitleText(textView: TextView, text: String?) {
+    text?.let {
+        textView.text = text
+    }
+}

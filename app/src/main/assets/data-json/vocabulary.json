@@ -1,114 +1,5 @@
 [
   {
-    "symbol": "出身",
-    "name": "Place of Origin",
-    "reading": "しゅっしん",
-    "level": "61",
-    "radicals": "exit,body"
-  },
-  {
-    "symbol": "今晩",
-    "name": "This Evening",
-    "reading": "こんばん",
-    "level": "61"
-  },
-  {
-    "symbol": "両親",
-    "name": "Parents",
-    "reading": "りょうしん",
-    "level": "61",
-    "radicals": "both,parent(stand,tree,see)"
-  },
-  {
-    "symbol": "空き",
-    "name": "Empties",
-    "reading": "すき",
-    "level": "61",
-    "radicals": "sky"
-  },
-  {
-    "symbol": "夕飯",
-    "name": "Dinner (alt)",
-    "reading": "ゆうはん",
-    "level": "61",
-    "radicals": "evening,meal(eat,anti)"
-  },
-  {
-    "symbol": "茶碗",
-    "name": "Bowl(Rice)",
-    "reading": "ちゃわん",
-    "level": "61",
-    "radicals": "tea(flowers,hat,angel),bowl?(stone,roof,evening,stamp)"
-  },
-  {
-    "symbol": "明後日",
-    "name": "Day After Tomorrow",
-    "reading": "あさって",
-    "level": "61",
-    "radicals": "bright,behind(loiter,poop,winter),sun"
-  },
-  {
-    "symbol": "風呂",
-    "name": "Bathtub",
-    "reading": "ふろ",
-    "level": "61",
-    "radicals": "wind,bathtub"
-  },
-  {
-    "symbol": "寝室",
-    "name": "Bedroom",
-    "reading": "しんしつ",
-    "level": "61",
-    "radicals": "lie down(roof,icicle,wolverine,forehead,stool),room(roof,ground,private,dirt)"
-  },
-  {
-    "symbol": "親戚",
-    "name": "Relative",
-    "reading": "しんせき",
-    "level": "61",
-    "radicals": ""
-  },
-  {
-    "symbol": "片すみ",
-    "name": "Corner",
-    "reading": "片すみ",
-    "level": "61",
-    "radicals": ""
-  },
-  {
-    "symbol": "鉄",
-    "name": "Iron/Metal",
-    "reading": "てつ",
-    "level": "61",
-    "radicals": ""
-  },
-  {
-    "symbol": "夕方",
-    "name": "Evening",
-    "reading": "ゆうがた",
-    "level": "61",
-    "radicals": ""
-  },
-  {
-    "symbol": "昼間",
-    "name": "Daytime",
-    "reading": "ひる",
-    "level": "61",
-    "radicals": ""
-  },
-  {
-    "symbol": "北東",
-    "name": "Northeast",
-    "reading": "ほくとう",
-    "level": "6"
-  },
-  {
-    "symbol": "南西",
-    "name": "Southwest",
-    "reading": "なんせい",
-    "level": "61"
-  },
-  {
     "symbol": "大人",
     "name": "Adult",
     "reading": "おとな",
@@ -33075,5 +32966,114 @@
     "name": "Yodogawa",
     "reading": "よどがわ",
     "level": "50"
+  },
+  {
+    "symbol": "出身",
+    "name": "Place of Origin",
+    "reading": "しゅっしん",
+    "level": "61",
+    "radicals": "exit,body"
+  },
+  {
+    "symbol": "今晩",
+    "name": "This Evening",
+    "reading": "こんばん",
+    "level": "61"
+  },
+  {
+    "symbol": "両親",
+    "name": "Parents",
+    "reading": "りょうしん",
+    "level": "61",
+    "radicals": "both,parent(stand,tree,see)"
+  },
+  {
+    "symbol": "空き",
+    "name": "Empties",
+    "reading": "すき",
+    "level": "61",
+    "radicals": "sky"
+  },
+  {
+    "symbol": "夕飯",
+    "name": "Dinner (alt)",
+    "reading": "ゆうはん",
+    "level": "61",
+    "radicals": "evening,meal(eat,anti)"
+  },
+  {
+    "symbol": "茶碗",
+    "name": "Bowl(Rice)",
+    "reading": "ちゃわん",
+    "level": "61",
+    "radicals": "tea(flowers,hat,angel),bowl?(stone,roof,evening,stamp)"
+  },
+  {
+    "symbol": "明後日",
+    "name": "Day After Tomorrow",
+    "reading": "あさって",
+    "level": "61",
+    "radicals": "bright,behind(loiter,poop,winter),sun"
+  },
+  {
+    "symbol": "風呂",
+    "name": "Bathtub",
+    "reading": "ふろ",
+    "level": "61",
+    "radicals": "wind,bathtub"
+  },
+  {
+    "symbol": "寝室",
+    "name": "Bedroom",
+    "reading": "しんしつ",
+    "level": "61",
+    "radicals": "lie down(roof,icicle,wolverine,forehead,stool),room(roof,ground,private,dirt)"
+  },
+  {
+    "symbol": "親戚",
+    "name": "Relative",
+    "reading": "しんせき",
+    "level": "61",
+    "radicals": ""
+  },
+  {
+    "symbol": "片すみ",
+    "name": "Corner",
+    "reading": "片すみ",
+    "level": "61",
+    "radicals": ""
+  },
+  {
+    "symbol": "鉄",
+    "name": "Iron/Metal",
+    "reading": "てつ",
+    "level": "61",
+    "radicals": ""
+  },
+  {
+    "symbol": "夕方",
+    "name": "Evening",
+    "reading": "ゆうがた",
+    "level": "61",
+    "radicals": ""
+  },
+  {
+    "symbol": "昼間",
+    "name": "Daytime",
+    "reading": "ひる",
+    "level": "61",
+    "radicals": ""
+  },
+  {
+    "symbol": "北東",
+    "name": "Northeast",
+    "reading": "ほくとう",
+    "level": "61"
+  },
+  {
+    "symbol": "南西",
+    "name": "Southwest",
+    "reading": "なんせい",
+    "level": "61"
   }
 ]
