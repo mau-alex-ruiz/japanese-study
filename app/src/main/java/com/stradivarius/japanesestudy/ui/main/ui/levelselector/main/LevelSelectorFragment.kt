@@ -1,4 +1,4 @@
-package com.stradivarius.japanesestudy.ui.main.ui.levelselector
+package com.stradivarius.japanesestudy.ui.main.ui.levelselector.main
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -11,6 +11,7 @@ import com.stradivarius.japanesestudy.databinding.LevelSelectorFragmentBinding
 import com.stradivarius.japanesestudy.ui.main.MainFragment
 import com.stradivarius.japanesestudy.ui.main.common.BaseToolbarFragment
 import com.stradivarius.japanesestudy.ui.main.data.Levels
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorViewModel
 import java.lang.IllegalArgumentException
 
 internal class LevelSelectorFragment(val cardType: Int)
@@ -36,7 +37,11 @@ internal class LevelSelectorFragment(val cardType: Int)
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
         setToolbarTitle()
         viewManager = LinearLayoutManager(context)
-        viewAdapter = LevelSelectorAdapter(Levels.levels, fragmentManager!!)
+        viewAdapter =
+            LevelSelectorAdapter(
+                Levels.levels.toList(),
+                fragmentManager!!
+            )
 
         recyclerView = rootView.findViewById<RecyclerView>(R.id.level_selector_recycler_view).apply {
             setHasFixedSize(true)
@@ -59,7 +64,9 @@ internal class LevelSelectorFragment(val cardType: Int)
 
     companion object {
         fun newInstance(cardType: Int) =
-            LevelSelectorFragment(cardType)
+            LevelSelectorFragment(
+                cardType
+            )
     }
 
 }

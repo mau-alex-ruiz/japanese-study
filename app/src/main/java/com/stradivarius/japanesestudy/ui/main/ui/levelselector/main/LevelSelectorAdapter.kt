@@ -1,4 +1,4 @@
-package com.stradivarius.japanesestudy.ui.main.ui.levelselector
+package com.stradivarius.japanesestudy.ui.main.ui.levelselector.main
 
 import android.view.LayoutInflater
 import android.view.ViewGroup
@@ -6,9 +6,10 @@ import androidx.cardview.widget.CardView
 import androidx.fragment.app.FragmentManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog.LevelSelectorDialog
 import kotlinx.android.synthetic.main.level_selector_card.view.*
 
-class LevelSelectorAdapter(
+internal class LevelSelectorAdapter(
     private val data: List<Pair<String, List<Int>>>,
     private val fragmentManager: FragmentManager
 ) : RecyclerView.Adapter<LevelSelectorAdapter.MyViewHolder>() {
@@ -19,13 +20,16 @@ class LevelSelectorAdapter(
         val cardView = LayoutInflater.from(parent.context)
             .inflate(R.layout.level_selector_card, parent, false) as CardView
 
-        return MyViewHolder(cardView)
+        return MyViewHolder(
+            cardView
+        )
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.cardView.level_selector_text.text = data[position].first
+        val levelCategory = data[position].first
+        holder.cardView.level_selector_text.text = levelCategory
         holder.cardView.setOnClickListener {
-            val dialog = LevelSelectorDialog.newInstance(position)
+            val dialog = LevelSelectorDialog.newInstance(levelCategory)
             dialog.show(fragmentManager, "")
         }
     }

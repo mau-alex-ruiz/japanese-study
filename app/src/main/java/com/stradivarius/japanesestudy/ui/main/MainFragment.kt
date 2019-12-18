@@ -1,14 +1,10 @@
 package com.stradivarius.japanesestudy.ui.main
 
 import android.content.Context
-import android.os.Bundle
-import android.view.LayoutInflater
-import android.view.View
-import android.view.ViewGroup
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.MainFragmentBinding
 import com.stradivarius.japanesestudy.ui.main.common.BaseFragment
-import com.stradivarius.japanesestudy.ui.main.ui.levelselector.LevelSelectorFragment
+import com.stradivarius.japanesestudy.ui.main.ui.levelselector.main.LevelSelectorFragment
 
 internal class MainFragment(context: Context) : BaseFragment<MainViewModel, MainFragmentBinding>() {
 
