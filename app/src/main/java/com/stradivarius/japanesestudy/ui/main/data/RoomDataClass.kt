@@ -13,6 +13,31 @@ abstract class AppDataBase : RoomDatabase() {
 }
 
 /**
+ * Vocabulary Table
+ */
+
+@Entity(tableName = "vocabulary")
+data class Vocabulary(
+    @PrimaryKey val symbol: String,
+    @ColumnInfo(name = "name") val name: String?,
+    @ColumnInfo(name = "reading") val reading: String?,
+    @ColumnInfo(name = "level") val level: String?,
+    @ColumnInfo(name = "radicals") val radicals: String?
+)
+
+@Dao
+interface VocabularyDao {
+    @Query("SELECT * FROM vocabulary")
+    fun getAll(): List<Vocabulary>
+
+    @Insert
+    fun insertAll(vocabList: List<Vocabulary>)
+
+    @Delete
+    fun delete(radical: Vocabulary)
+}
+
+/**
  * Kanji Table
  */
 @Entity(tableName = "kanji")
@@ -59,31 +84,6 @@ interface RadicalDao {
 
     @Delete
     fun delete(radical: Radical)
-}
-
-/**
- * Vocabulary Table
- */
-
-@Entity(tableName = "vocabulary")
-data class Vocabulary(
-    @PrimaryKey val symbol: String,
-    @ColumnInfo(name = "name") val name: String?,
-    @ColumnInfo(name = "reading") val reading: String?,
-    @ColumnInfo(name = "level") val level: String?,
-    @ColumnInfo(name = "radicals") val radicals: String?
-)
-
-@Dao
-interface VocabularyDao {
-    @Query("SELECT * FROM vocabulary")
-    fun getAll(): List<Vocabulary>
-
-    @Insert
-    fun insertAll(vocabList: List<Vocabulary>)
-
-    @Delete
-    fun delete(radical: Vocabulary)
 }
 
 /**

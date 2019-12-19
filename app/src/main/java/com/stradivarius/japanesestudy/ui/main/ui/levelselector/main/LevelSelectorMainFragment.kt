@@ -25,6 +25,7 @@ internal class LevelSelectorMainFragment(val cardType: Int)
     override fun provideLayoutResource(): Int = R.layout.level_selector_fragment
 
     override fun bindViewModel(viewModel: LevelSelectorViewModel, bindingLayout: LevelSelectorFragmentBinding) {
+        viewModel.setCardCategory(cardType)
         bindingLayout.model = viewModel
     }
 

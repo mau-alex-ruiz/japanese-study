@@ -13,6 +13,8 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
 
     private const val DATABASE_FILE = "japanese-study.db"
 
+    val cardCategory = MutableLiveData<Int>()
+
     val database = MutableLiveData<AppDataBase>()
 
     override fun init(context: Context?) {

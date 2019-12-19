@@ -7,5 +7,8 @@ internal class LevelSelectorViewModel(
     private val repository : LocalSessionWrapperImpl
 ) : ViewModel() {
 
+    fun setCardCategory(cardType: Int) {
+        repository.cardCategory.postValue(cardType)
+    }
 
 }

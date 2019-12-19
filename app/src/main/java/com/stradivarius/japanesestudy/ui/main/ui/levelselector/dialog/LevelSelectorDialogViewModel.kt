@@ -25,7 +25,7 @@ internal class LevelSelectorDialogViewModel(
     }
 
     fun onSaveButtonClick(view: View) {
-        Log.e("yeet", "klfjdslkfjd")
+        Log.e("yeet", "${repository.cardCategory.value}")
         dialog.dismiss()
     }
 
