@@ -8,7 +8,7 @@ internal class LevelSelectorViewModel(
 ) : ViewModel() {
 
     fun setCardCategory(cardType: Int) {
-        repository.cardCategory.postValue(cardType)
+        repository.setCardCategory(cardType)
     }
 
 }

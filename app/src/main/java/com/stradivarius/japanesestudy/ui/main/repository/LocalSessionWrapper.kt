@@ -8,4 +8,6 @@ internal interface LocalSessionWrapper {
 
     fun init(context: Context?)
 
+    fun getCheckBoxMap() : MutableMap<String, Boolean>
+
 }

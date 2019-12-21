@@ -6,20 +6,27 @@ import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
+import com.stradivarius.japanesestudy.ui.main.MainFragment
 import com.stradivarius.japanesestudy.ui.main.data.*
 import java.io.File
+import java.lang.IllegalArgumentException
 
 internal object LocalSessionWrapperImpl : LocalSessionWrapper {
 
     private const val DATABASE_FILE = "japanese-study.db"
 
-    val cardCategory = MutableLiveData<Int>()
+    private val cardCategory = MutableLiveData<Int>()
+
+    private val vocabCheckBoxMap = mutableMapOf<String, Boolean>()
+
+    private val kanjiCheckBoxMap = mutableMapOf<String, Boolean>()
+
+    private val radicalCheckBoxMap = mutableMapOf<String, Boolean>()
 
     val database = MutableLiveData<AppDataBase>()
 
-    val checkBoxMap = mutableMapOf<String, Boolean>()
-
     override fun init(context: Context?) {
+
         if (context != null) {
 
             val tempDatabase: AppDataBase
@@ -57,7 +64,18 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
             }
             database.postValue(tempDatabase)
         }
-
     }
 
+    fun setCardCategory(cardType: Int) {
+        cardCategory.postValue(cardType)
+    }
+
+    override fun getCheckBoxMap(): MutableMap<String, Boolean> {
+        return when(cardCategory.value) {
+            MainFragment.VOCAB_CARD -> vocabCheckBoxMap
+            MainFragment.KANJI_CARD -> kanjiCheckBoxMap
+            MainFragment.RADICAL_CARD -> radicalCheckBoxMap
+            else -> throw IllegalArgumentException("No such card type")
+        }
+    }
 }

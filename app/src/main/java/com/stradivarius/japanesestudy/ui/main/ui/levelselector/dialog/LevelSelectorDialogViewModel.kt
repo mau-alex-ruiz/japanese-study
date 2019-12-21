@@ -17,7 +17,7 @@ internal class LevelSelectorDialogViewModel(
 
     val dialogTitle = MutableLiveData<String>()
 
-    val tempCheckBoxMap = mutableMapOf<String, Boolean>()
+    private val tempCheckBoxMap = mutableMapOf<String, Boolean>()
 
     fun onCheckboxClick(view: CompoundButton, isChecked: Boolean) {
         tempCheckBoxMap[view.tag.toString()] = isChecked
@@ -25,7 +25,7 @@ internal class LevelSelectorDialogViewModel(
 
     fun onSaveButtonClick(button: View) {
         for ((key, value) in tempCheckBoxMap) {
-            repository.checkBoxMap[key] = value
+            repository.getCheckBoxMap()[key] = value
         }
         button.postOnAnimationDelayed({
             dialog.dismiss()

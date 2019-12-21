@@ -29,10 +29,10 @@ internal class LevelSelectorDialogAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        val position = data[position].toString()
-        holder.view.level_selector_checkbox.text = position
-        holder.view.tag = position
-        holder.view.isChecked = LocalSessionWrapperImpl.checkBoxMap[position] ?: false
+        val level = data[position].toString()
+        holder.view.level_selector_checkbox.text = level
+        holder.view.tag = level
+        holder.view.isChecked = LocalSessionWrapperImpl.getCheckBoxMap()[level] ?: false
         holder.view.setOnCheckedChangeListener {buttonView, isChecked ->
             viewmodel.onCheckboxClick(buttonView, isChecked)
         }
