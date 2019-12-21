@@ -17,6 +17,8 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
 
     val database = MutableLiveData<AppDataBase>()
 
+    val checkBoxMap = mutableMapOf<String, Boolean>()
+
     override fun init(context: Context?) {
         if (context != null) {
 

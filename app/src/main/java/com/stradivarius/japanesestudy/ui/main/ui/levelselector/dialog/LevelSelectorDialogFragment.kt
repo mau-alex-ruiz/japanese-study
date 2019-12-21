@@ -56,6 +56,7 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
+
     }
 
     companion object {

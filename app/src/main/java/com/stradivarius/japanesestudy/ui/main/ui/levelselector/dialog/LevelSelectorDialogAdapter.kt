@@ -8,12 +8,13 @@ import android.widget.CheckBox
 import android.widget.CompoundButton
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
+import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 import kotlinx.android.synthetic.main.level_selector_checkbox.view.*
 import kotlin.reflect.jvm.internal.impl.util.Check
 
 internal class LevelSelectorDialogAdapter(
     private val data: List<Int>,
-    private val viewmodel: LevelSelectorDialogViewModel?
+    private val viewmodel: LevelSelectorDialogViewModel
 ) : RecyclerView.Adapter<LevelSelectorDialogAdapter.MyViewHolder>() {
 
     class MyViewHolder(val view: CheckBox) : RecyclerView.ViewHolder(view)
@@ -28,10 +29,12 @@ internal class LevelSelectorDialogAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.view.level_selector_checkbox.text = data[position].toString()
-        holder.view.tag = data[position]
+        val position = data[position].toString()
+        holder.view.level_selector_checkbox.text = position
+        holder.view.tag = position
+        holder.view.isChecked = LocalSessionWrapperImpl.checkBoxMap[position] ?: false
         holder.view.setOnCheckedChangeListener {buttonView, isChecked ->
-            viewmodel?.onCheckboxClick(buttonView, isChecked)
+            viewmodel.onCheckboxClick(buttonView, isChecked)
         }
 }
 
