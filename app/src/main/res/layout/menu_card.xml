@@ -2,7 +2,7 @@
 
 <layout>
     <data>
-        <variable name="model" type="com.stradivarius.japanesestudy.ui.main.MainViewModel" />
+        <variable name="model" type="com.stradivarius.japanesestudy.ui.main.ui.MainViewModel" />
         <variable name="cardType" type="Integer" />
     </data>
 

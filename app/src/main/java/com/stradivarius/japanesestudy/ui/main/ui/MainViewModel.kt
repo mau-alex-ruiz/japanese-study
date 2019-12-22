@@ -1,4 +1,4 @@
-package com.stradivarius.japanesestudy.ui.main
+package com.stradivarius.japanesestudy.ui.main.ui
 
 import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.R

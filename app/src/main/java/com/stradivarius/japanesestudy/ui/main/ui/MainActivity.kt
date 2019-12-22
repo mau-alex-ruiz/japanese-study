@@ -1,8 +1,11 @@
-package com.stradivarius.japanesestudy.ui.main
+package com.stradivarius.japanesestudy.ui.main.ui
 
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
+import android.view.Menu
 import androidx.appcompat.widget.Toolbar
+import androidx.core.view.get
 import androidx.lifecycle.Observer
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.data.AppDataBase
@@ -11,6 +14,8 @@ import com.stradivarius.japanesestudy.ui.main.ui.loading.LoadingFragment
 import kotlinx.android.synthetic.main.main_activity.*
 
 class MainActivity : AppCompatActivity() {
+
+    private lateinit var optionsMenu: Menu
 
     private val databaseLoadObserver: Observer<AppDataBase> = Observer {
         it.also {
@@ -27,6 +32,12 @@ class MainActivity : AppCompatActivity() {
             LocalSessionWrapperImpl.database.observeForever(databaseLoadObserver)
             showLoadingFragment()
         }
+    }
+
+    override fun onCreateOptionsMenu(menu: Menu?): Boolean {
+        menuInflater.inflate(R.menu.level_selector, menu)
+        optionsMenu = menu!!
+        return true
     }
 
     private fun showMainFragment() {
@@ -58,10 +69,14 @@ class MainActivity : AppCompatActivity() {
                     setTitle(R.string.app_name)
                     supportActionBar?.setDisplayHomeAsUpEnabled(false)
                     supportActionBar?.setDisplayShowHomeEnabled(false)
+                    setStartActionVisibility(false)
                 }
                 this.popBackStack()
             }
         }
     }
 
+    fun setStartActionVisibility(shouldShow: Boolean) {
+        optionsMenu.findItem(R.id.action_start).isVisible = shouldShow
+    }
 }

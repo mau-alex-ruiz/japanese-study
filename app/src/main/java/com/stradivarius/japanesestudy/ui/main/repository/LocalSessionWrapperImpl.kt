@@ -6,7 +6,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.room.Room
 import com.fasterxml.jackson.module.kotlin.jacksonObjectMapper
 import com.fasterxml.jackson.module.kotlin.readValue
-import com.stradivarius.japanesestudy.ui.main.MainFragment
+import com.stradivarius.japanesestudy.ui.main.ui.MainFragment
 import com.stradivarius.japanesestudy.ui.main.data.*
 import java.io.File
 import java.lang.IllegalArgumentException
@@ -15,7 +15,7 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
 
     private const val DATABASE_FILE = "japanese-study.db"
 
-    private val cardCategory = MutableLiveData<Int>()
+    private var cardCategory: Int = -1
 
     private val vocabCheckBoxMap = mutableMapOf<String, Boolean>()
 
@@ -67,11 +67,11 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
     }
 
     fun setCardCategory(cardType: Int) {
-        cardCategory.postValue(cardType)
+        cardCategory = cardType
     }
 
     override fun getCheckBoxMap(): MutableMap<String, Boolean> {
-        return when(cardCategory.value) {
+        return when(cardCategory) {
             MainFragment.VOCAB_CARD -> vocabCheckBoxMap
             MainFragment.KANJI_CARD -> kanjiCheckBoxMap
             MainFragment.RADICAL_CARD -> radicalCheckBoxMap

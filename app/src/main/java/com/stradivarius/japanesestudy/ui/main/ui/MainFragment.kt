@@ -1,4 +1,4 @@
-package com.stradivarius.japanesestudy.ui.main
+package com.stradivarius.japanesestudy.ui.main.ui
 
 import android.content.Context
 import com.stradivarius.japanesestudy.R
