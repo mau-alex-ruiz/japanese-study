@@ -66,6 +66,10 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
         }
     }
 
+    fun getCardCategory(): Int {
+        return cardCategory
+    }
+
     fun setCardCategory(cardType: Int) {
         cardCategory = cardType
     }

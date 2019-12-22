@@ -1,5 +1,9 @@
 <resources>
+
+    <!-- Toolbar -->
     <string name="app_name">Japanese Study</string>
+    <string name="lesson_start">Start</string>
+    <string name="lesson_toolbar_title">Lesson</string>
 
     <!-- Card List Names -->
     <string name="duo_vocab_card">Duo Vocabulary</string>
@@ -9,9 +13,7 @@
 
     <string name="button_save">Save</string>
 
-    <string name="lesson_start">Start</string>
-
-    <string name="lesson_toolbar_title">Lesson</string>
+    <string name="need_level_selection">There are no levels selected!</string>
 
 
 

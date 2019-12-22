@@ -7,6 +7,11 @@ internal class LessonViewModel(
     private val repository: LocalSessionWrapperImpl
 ) : ViewModel() {
 
+    fun showSymbol() : String {
+        val list = repository.database.value?.vocabDao()?.getAll()
+
+        return list?.get(0)?.symbol!!
+    }
 
 
 }

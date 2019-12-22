@@ -7,6 +7,7 @@ import android.view.Menu
 import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
+import com.google.android.material.snackbar.Snackbar
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.data.AppDataBase
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
@@ -83,8 +84,14 @@ class MainActivity : AppCompatActivity() {
 
 
     fun startLessonActivity(menuItem : MenuItem) {
-        val intent = Intent(this, LessonActivity::class.java)
-        startActivity(intent)
+        if (LocalSessionWrapperImpl.getCheckBoxMap().isEmpty()) {
+            Snackbar.make(findViewById(R.id.main_container), R.string.need_level_selection, Snackbar.LENGTH_SHORT)
+                .show()
+        }
+        else {
+            val intent = Intent(this, LessonActivity::class.java)
+            startActivity(intent)
+        }
     }
 
 }
