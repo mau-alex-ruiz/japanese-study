@@ -8,6 +8,7 @@
         android:id="@+id/action_start"
         android:title="@string/lesson_start"
         android:visible="false"
-        app:showAsAction="always" />
+        app:showAsAction="always"
+        android:onClick="startLessonActivity"/>
 
 </menu>

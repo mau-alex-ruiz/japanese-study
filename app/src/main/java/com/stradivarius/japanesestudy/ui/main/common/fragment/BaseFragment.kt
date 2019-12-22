@@ -1,4 +1,4 @@
-package com.stradivarius.japanesestudy.ui.main.common
+package com.stradivarius.japanesestudy.ui.main.common.fragment
 
 import android.os.Bundle
 import android.view.LayoutInflater
@@ -48,10 +48,10 @@ internal abstract class BaseFragment<V, B> : Fragment()
         return bindingLayout.root
     }
 
-    fun showFragment(fragment: Fragment, tag: String = "") {
+    fun showFragment(container: Int, fragment: Fragment, tag: String = "") {
         activity?.supportFragmentManager?.beginTransaction()
             ?.replace(
-                R.id.container,
+                container,
                 fragment,
                 tag
             )?.addToBackStack("")?.commit()

@@ -3,6 +3,7 @@ package com.stradivarius.japanesestudy.ui.main.common.viewmodel
 import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.ui.main.ui.MainViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
+import com.stradivarius.japanesestudy.ui.main.ui.lesson.LessonViewModel
 import com.stradivarius.japanesestudy.ui.main.ui.levelselector.main.LevelSelectorViewModel
 import java.lang.IllegalArgumentException
 
@@ -16,7 +17,12 @@ internal class ViewModelFactoryImpl(
             MainViewModel::class.java -> MainViewModel(
                 repository
             )
-            LevelSelectorViewModel::class.java -> LevelSelectorViewModel(repository)
+            LevelSelectorViewModel::class.java -> LevelSelectorViewModel(
+                repository
+            )
+            LessonViewModel::class.java -> LessonViewModel(
+                repository
+            )
             else -> throw IllegalArgumentException(
                 "No class found for $clazz. See ${this::class.java}"
             )

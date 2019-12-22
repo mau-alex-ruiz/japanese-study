@@ -1,15 +1,16 @@
 package com.stradivarius.japanesestudy.ui.main.ui
 
+import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
-import android.util.Log
 import android.view.Menu
+import android.view.MenuItem
 import androidx.appcompat.widget.Toolbar
-import androidx.core.view.get
 import androidx.lifecycle.Observer
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.data.AppDataBase
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
+import com.stradivarius.japanesestudy.ui.main.ui.lesson.LessonActivity
 import com.stradivarius.japanesestudy.ui.main.ui.loading.LoadingFragment
 import kotlinx.android.synthetic.main.main_activity.*
 
@@ -26,8 +27,7 @@ class MainActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
-        setTitle(R.string.app_name)
-        setupToolbar(toolbar)
+        setupToolbar(main_toolbar)
         if (savedInstanceState == null || LocalSessionWrapperImpl.database.value == null) {
             LocalSessionWrapperImpl.database.observeForever(databaseLoadObserver)
             showLoadingFragment()
@@ -43,7 +43,7 @@ class MainActivity : AppCompatActivity() {
     private fun showMainFragment() {
         supportFragmentManager.beginTransaction()
             .replace(
-                R.id.container,
+                R.id.main_container,
                 MainFragment.newInstance(
                     applicationContext
                 )
@@ -54,13 +54,14 @@ class MainActivity : AppCompatActivity() {
     private fun showLoadingFragment() {
         supportFragmentManager.beginTransaction()
             .add(
-                R.id.container,
+                R.id.main_container,
                 LoadingFragment.newInstance()
             )
             .commitNow()
     }
 
     private fun setupToolbar(toolbar: Toolbar) {
+        setTitle(R.string.app_name)
         setSupportActionBar(toolbar)
         toolbar.setTitleTextColor(resources.getColor(R.color.cardview_light_background))
         toolbar.setNavigationOnClickListener {
@@ -79,4 +80,11 @@ class MainActivity : AppCompatActivity() {
     fun setStartActionVisibility(shouldShow: Boolean) {
         optionsMenu.findItem(R.id.action_start).isVisible = shouldShow
     }
+
+
+    fun startLessonActivity(menuItem : MenuItem) {
+        val intent = Intent(this, LessonActivity::class.java)
+        startActivity(intent)
+    }
+
 }

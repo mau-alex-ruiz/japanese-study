@@ -3,7 +3,7 @@ package com.stradivarius.japanesestudy.ui.main.ui
 import android.content.Context
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.MainFragmentBinding
-import com.stradivarius.japanesestudy.ui.main.common.BaseFragment
+import com.stradivarius.japanesestudy.ui.main.common.fragment.BaseFragment
 import com.stradivarius.japanesestudy.ui.main.ui.levelselector.main.LevelSelectorMainFragment
 
 internal class MainFragment(context: Context) : BaseFragment<MainViewModel, MainFragmentBinding>() {
@@ -19,8 +19,12 @@ internal class MainFragment(context: Context) : BaseFragment<MainViewModel, Main
         bindingLayout.radicalsCard.cardView.setOnClickListener { startCardFragment(RADICAL_CARD) }
     }
 
-    fun startCardFragment(cardType: Int) {
-        showFragment(LevelSelectorMainFragment.newInstance(cardType), "FromMainFragment")
+    private fun startCardFragment(cardType: Int) {
+        showFragment(
+            R.id.main_container,
+            LevelSelectorMainFragment.newInstance(cardType),
+            "FromMainFragment"
+        )
     }
 
     companion object {

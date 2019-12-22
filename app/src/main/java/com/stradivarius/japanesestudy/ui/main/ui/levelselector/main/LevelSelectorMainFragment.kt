@@ -9,7 +9,7 @@ import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.LevelSelectorFragmentBinding
 import com.stradivarius.japanesestudy.ui.main.ui.MainFragment
-import com.stradivarius.japanesestudy.ui.main.common.BaseToolbarFragment
+import com.stradivarius.japanesestudy.ui.main.common.fragment.BaseToolbarFragment
 import com.stradivarius.japanesestudy.ui.main.data.Levels
 import com.stradivarius.japanesestudy.ui.main.ui.MainActivity
 import java.lang.IllegalArgumentException

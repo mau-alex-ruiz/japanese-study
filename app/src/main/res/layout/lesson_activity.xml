@@ -9,7 +9,7 @@
     android:fitsSystemWindows="true">
 
     <androidx.appcompat.widget.Toolbar
-        android:id="@+id/main_toolbar"
+        android:id="@+id/lesson_toolbar"
         android:layout_height="wrap_content"
         android:layout_width="match_parent"
         android:minHeight="?attr/actionBarSize"
@@ -17,7 +17,7 @@
         android:theme="@style/AppTheme"/>
 
     <FrameLayout
-        android:id="@+id/main_container"
+        android:id="@+id/lesson_container"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         tools:context=".ui.main.ui.MainActivity" />
