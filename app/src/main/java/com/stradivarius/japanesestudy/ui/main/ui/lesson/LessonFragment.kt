@@ -38,7 +38,7 @@ internal class LessonFragment(context: Context) : BaseToolbarFragment<LessonView
     ): View {
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
         viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        viewMainAdapter = LessonAdapter(listOf("1", "2", "3"))
+        viewMainAdapter = LessonAdapter(viewModel.getSymbolList())
         recyclerView = rootView.findViewById<RecyclerView>(R.id.lesson_recycler_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
@@ -49,7 +49,7 @@ internal class LessonFragment(context: Context) : BaseToolbarFragment<LessonView
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)
                 if (newState == RecyclerView.SCROLL_STATE_DRAGGING) {
-                    snapHelper.startView = LessonSnapHelper().findSnapView(viewManager)
+                    snapHelper.startView = snapHelper.findSnapView(viewManager)
                 }
             }
         })
@@ -60,7 +60,6 @@ internal class LessonFragment(context: Context) : BaseToolbarFragment<LessonView
 
 
     companion object {
-
         fun newInstance(context: Context) =
             LessonFragment(context)
     }

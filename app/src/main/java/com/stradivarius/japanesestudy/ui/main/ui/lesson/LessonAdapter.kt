@@ -5,9 +5,10 @@ import android.view.ViewGroup
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
+import com.stradivarius.japanesestudy.ui.main.data.BaseDataTable
 
 class LessonAdapter(
-    private val data: List<String>
+    private val data: List<BaseDataTable>
 ) : RecyclerView.Adapter<LessonAdapter.MyViewHolder>() {
 
     class MyViewHolder(val textView: TextView) : RecyclerView.ViewHolder(textView)
@@ -22,7 +23,7 @@ class LessonAdapter(
     }
 
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
-        holder.textView.text = data[position]
+        holder.textView.text = data[position].symbolEntry
     }
 
     override fun getItemCount(): Int {

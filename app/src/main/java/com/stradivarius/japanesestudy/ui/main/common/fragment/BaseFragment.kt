@@ -21,16 +21,14 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
     protected abstract fun bindViewModel(viewModel: V, bindingLayout: B)
 
-    private lateinit var viewModel: V
+    protected lateinit var viewModel: V
 
     private lateinit var bindingLayout: B
 
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-
-        viewModel = ViewModelFactoryImpl(LocalSessionWrapperImpl).createViewModel(provideViewModelClass())
-
-        bindViewModel(viewModel, bindingLayout)
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        viewModel = ViewModelFactoryImpl(LocalSessionWrapperImpl)
+            .createViewModel(provideViewModelClass())
     }
 
     override fun onCreateView(
@@ -46,6 +44,11 @@ internal abstract class BaseFragment<V, B> : Fragment()
         )
         bindingLayout.lifecycleOwner = this
         return bindingLayout.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        bindViewModel(viewModel, bindingLayout)
     }
 
     fun showFragment(container: Int, fragment: Fragment, tag: String = "") {

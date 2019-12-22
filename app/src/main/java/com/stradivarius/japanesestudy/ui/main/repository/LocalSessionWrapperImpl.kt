@@ -23,7 +23,9 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
 
     private val radicalCheckBoxMap = mutableMapOf<String, Boolean>()
 
-    val database = MutableLiveData<AppDataBase>()
+    lateinit var database: AppDataBase
+
+    val databaseLoad = MutableLiveData<AppDataBase>()
 
     override fun init(context: Context?) {
 
@@ -62,7 +64,7 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
                     mapper.readValue(context.assets.open("data-json/vocabulary.json"))
                 )
             }
-            database.postValue(tempDatabase)
+            databaseLoad.postValue(tempDatabase)
         }
     }
 

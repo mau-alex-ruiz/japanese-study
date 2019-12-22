@@ -21,6 +21,7 @@ class MainActivity : AppCompatActivity() {
 
     private val databaseLoadObserver: Observer<AppDataBase> = Observer {
         it.also {
+            LocalSessionWrapperImpl.database = it
             showMainFragment()
         }
     }
@@ -29,8 +30,8 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.main_activity)
         setupToolbar(main_toolbar)
-        if (savedInstanceState == null || LocalSessionWrapperImpl.database.value == null) {
-            LocalSessionWrapperImpl.database.observeForever(databaseLoadObserver)
+        if (savedInstanceState == null) {
+            LocalSessionWrapperImpl.databaseLoad.observeForever(databaseLoadObserver)
             showLoadingFragment()
         }
     }

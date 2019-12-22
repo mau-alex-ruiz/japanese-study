@@ -13,6 +13,19 @@ abstract class AppDataBase : RoomDatabase() {
 }
 
 /**
+ * Base Entity Class
+ */
+
+open class BaseDataTable(
+    var symbolEntry: String? = null,
+    var nameEntry: String? = null,
+    var readingEntry: String? = null,
+    var levelEntry: String? = null,
+    var radicalsEntry: String? = null
+
+)
+
+/**
  * Vocabulary Table
  */
 
@@ -23,7 +36,7 @@ data class Vocabulary(
     @ColumnInfo(name = "reading") val reading: String?,
     @ColumnInfo(name = "level") val level: String?,
     @ColumnInfo(name = "radicals") val radicals: String?
-)
+) : BaseDataTable(symbol, name, reading, level, radicals)
 
 @Dao
 interface VocabularyDao {
@@ -44,9 +57,9 @@ interface VocabularyDao {
 data class Kanji(
     @PrimaryKey val symbol: String,
     @ColumnInfo(name = "name") val name: String?,
-    @ColumnInfo(name = "level") val level: Int?,
-    @ColumnInfo(name = "reading") val reading: String?
-)
+    @ColumnInfo(name = "reading") val reading: String?,
+    @ColumnInfo(name = "level") val level: String?
+) : BaseDataTable(symbol, name, reading, level, null)
 
 @Dao
 interface KanjiDao {
@@ -69,7 +82,7 @@ data class Radical(
     @ColumnInfo(name = "symbol") val symbol: String?,
     @ColumnInfo(name = "level") val level: String?,
     @ColumnInfo(name = "symbolImage") val symbolImage: String?
-)
+) : BaseDataTable(symbol, name, null, level, null)
 
 @Dao
 interface RadicalDao {
