@@ -73,6 +73,7 @@ class MainActivity : AppCompatActivity() {
                     supportActionBar?.setDisplayHomeAsUpEnabled(false)
                     supportActionBar?.setDisplayShowHomeEnabled(false)
                     setStartActionVisibility(false)
+                    LocalSessionWrapperImpl.clearMaps()
                 }
                 this.popBackStack()
             }

@@ -12,11 +12,11 @@ internal class LessonViewModel(
 ) : ViewModel() {
 
     fun getSymbolList(): List<BaseDataTable> {
-        val checkboxMap = repository.getCheckBoxMap().filter { it.value }
+        val levels = repository.getCheckBoxMap().filter { it.value }.keys.toList()
         return when (repository.getCardCategory()) {
-            MainFragment.VOCAB_CARD -> repository.database.vocabDao().getSelected(checkboxMap.keys.toList())
-            MainFragment.KANJI_CARD -> repository.database.kanjiDao().getSelected(checkboxMap.keys.toList())
-            MainFragment.RADICAL_CARD -> repository.database.radicalDao().getSelected(checkboxMap.keys.toList())
+            MainFragment.VOCAB_CARD -> repository.database.vocabDao().getSelected(levels)
+            MainFragment.KANJI_CARD -> repository.database.kanjiDao().getSelected(levels)
+            MainFragment.RADICAL_CARD -> repository.database.radicalDao().getSelected(levels)
             else -> throw IllegalArgumentException("No such card category.")
         }
     }

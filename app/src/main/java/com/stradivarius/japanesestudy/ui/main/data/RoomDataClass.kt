@@ -43,7 +43,7 @@ interface VocabularyDao {
     @Query("SELECT * FROM vocabulary")
     fun getAll(): List<Vocabulary>
 
-    @Query("SELECT * FROM vocabulary WHERE level IN (:selectedLevels)")
+    @Query("SELECT * FROM vocabulary WHERE level IN (:selectedLevels) ORDER BY RANDOM()")
     fun getSelected(selectedLevels: List<String>) : List<Vocabulary>
 
     @Insert
@@ -69,7 +69,7 @@ interface KanjiDao {
     @Query("SELECT * FROM kanji")
     fun getAll(): List<Kanji>
 
-    @Query("SELECT * FROM kanji WHERE level IN (:selectedLevels)")
+    @Query("SELECT * FROM kanji WHERE level IN (:selectedLevels) ORDER BY RANDOM()")
     fun getSelected(selectedLevels: List<String>) : List<Kanji>
 
     @Insert
@@ -95,7 +95,7 @@ interface RadicalDao {
     @Query("SELECT * FROM radicals")
     fun getAll(): List<Radical>
 
-    @Query("SELECT * FROM radicals WHERE level IN (:selectedLevels)")
+    @Query("SELECT * FROM radicals WHERE level IN (:selectedLevels) ORDER BY RANDOM()")
     fun getSelected(selectedLevels: List<String>) : List<Radical>
 
     @Insert

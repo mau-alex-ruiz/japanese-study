@@ -76,6 +76,12 @@ internal object LocalSessionWrapperImpl : LocalSessionWrapper {
         cardCategory = cardType
     }
 
+    fun clearMaps() {
+        vocabCheckBoxMap.clear()
+        kanjiCheckBoxMap.clear()
+        radicalCheckBoxMap.clear()
+    }
+
     override fun getCheckBoxMap(): MutableMap<String, Boolean> {
         return when(cardCategory) {
             MainFragment.VOCAB_CARD -> vocabCheckBoxMap
