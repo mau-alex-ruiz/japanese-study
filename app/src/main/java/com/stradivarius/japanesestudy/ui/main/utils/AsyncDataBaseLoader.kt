@@ -7,19 +7,9 @@ import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
 internal class AsyncDataBaseLoader : AsyncTask<Context, Void, String>() {
 
-    override fun onPreExecute() {
-        super.onPreExecute()
-        Log.i("PreExecute", "onPreExecute of database loader")
-    }
-
     override fun doInBackground(vararg params: Context?): String {
         LocalSessionWrapperImpl.init(params[0])
         return "Database Loaded Successfully"
-    }
-
-    override fun onPostExecute(result: String) {
-        super.onPostExecute(result)
-        Log.i("PostExecute", "onPostExecute of database loader")
     }
 
 }

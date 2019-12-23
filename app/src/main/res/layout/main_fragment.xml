@@ -7,50 +7,39 @@
         <variable name="model" type="com.stradivarius.japanesestudy.ui.main.ui.MainViewModel" />
     </data>
 
-    <androidx.constraintlayout.widget.ConstraintLayout
+    <LinearLayout
+        android:id="@+id/card_list"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:weightSum="4"
+        android:orientation="vertical"
+        android:splitMotionEvents="false">
 
-        <LinearLayout
-            android:id="@+id/card_list"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:weightSum="4"
-            android:orientation="vertical"
-            android:splitMotionEvents="false">
+        <include
+            android:id="@+id/vocab_card"
+            layout="@layout/menu_card"
+            app:model="@{model}"
+            app:cardType="@{model.vocabCardTitle()}"
+            />
 
-            <include
-                android:id="@+id/vocab_card"
-                layout="@layout/menu_card"
-                app:model="@{model}"
-                app:cardType="@{model.vocabCardTitle()}"
-                />
+        <include
+            android:id="@+id/kanji_card"
+            layout="@layout/menu_card"
+            app:cardType="@{model.kanjiCardTitle()}"
+            />
 
-            <include
-                android:id="@+id/kanji_card"
-                layout="@layout/menu_card"
-                app:cardType="@{model.kanjiCardTitle()}"
-                />
+        <include
+            android:id="@+id/radicals_card"
+            layout="@layout/menu_card"
+            app:cardType="@{model.radicalCardTitle()}"
+            />
 
-            <include
-                android:id="@+id/radicals_card"
-                layout="@layout/menu_card"
-                app:cardType="@{model.radicalCardTitle()}"
-                />
+        <include
+            android:id="@+id/duo_vocab_card"
+            layout="@layout/menu_card"
+            app:cardType="@{model.radicalCardTitle()}"
+            />
 
-            <include
-                android:id="@+id/duo_vocab_card"
-                layout="@layout/menu_card"
-                app:cardType="@{model.radicalCardTitle()}"
-                />
-
-        </LinearLayout>
-
-    </androidx.constraintlayout.widget.ConstraintLayout>
-
-
-
-
-
+    </LinearLayout>
 </layout>
 

@@ -15,7 +15,8 @@ internal class LessonSnapHelper : LinearSnapHelper() {
         velocityX: Int,
         velocityY: Int
     ): Int {
-        if ((layoutManager !is RecyclerView.SmoothScroller.ScrollVectorProvider)) {
+        if ((layoutManager !is RecyclerView.SmoothScroller.ScrollVectorProvider)
+            || startView == null) {
             return RecyclerView.NO_POSITION
         }
         return if (velocityX.absoluteValue > 3000) {

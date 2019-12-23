@@ -8,7 +8,6 @@ import androidx.databinding.DataBindingUtil
 import androidx.databinding.ViewDataBinding
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
-import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
@@ -21,13 +20,13 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
     protected abstract fun bindViewModel(viewModel: V, bindingLayout: B)
 
-    protected lateinit var viewModel: V
+    protected lateinit var viewmodel: V
 
     private lateinit var bindingLayout: B
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelFactoryImpl(LocalSessionWrapperImpl)
+        viewmodel = ViewModelFactoryImpl(LocalSessionWrapperImpl)
             .createViewModel(provideViewModelClass())
     }
 
@@ -48,7 +47,7 @@ internal abstract class BaseFragment<V, B> : Fragment()
 
     override fun onActivityCreated(savedInstanceState: Bundle?) {
         super.onActivityCreated(savedInstanceState)
-        bindViewModel(viewModel, bindingLayout)
+        bindViewModel(viewmodel, bindingLayout)
     }
 
     fun showFragment(container: Int, fragment: Fragment, tag: String = "") {

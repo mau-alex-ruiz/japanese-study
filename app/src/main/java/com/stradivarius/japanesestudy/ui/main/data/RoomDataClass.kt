@@ -18,6 +18,7 @@ abstract class AppDataBase : RoomDatabase() {
 
 open class BaseDataTable(
     var symbolEntry: String? = null,
+    var symbolURLEntry: String? = null,
     var nameEntry: String? = null,
     var readingEntry: String? = null,
     var levelEntry: String? = null,
@@ -36,7 +37,7 @@ data class Vocabulary(
     @ColumnInfo(name = "reading") val reading: String?,
     @ColumnInfo(name = "level") val level: String?,
     @ColumnInfo(name = "radicals") val radicals: String?
-) : BaseDataTable(symbol, name, reading, level, radicals)
+) : BaseDataTable(symbol, null, name, reading, level, radicals)
 
 @Dao
 interface VocabularyDao {
@@ -59,7 +60,7 @@ data class Kanji(
     @ColumnInfo(name = "name") val name: String?,
     @ColumnInfo(name = "reading") val reading: String?,
     @ColumnInfo(name = "level") val level: String?
-) : BaseDataTable(symbol, name, reading, level, null)
+) : BaseDataTable(symbol, null, name, reading, level, null)
 
 @Dao
 interface KanjiDao {
@@ -82,7 +83,7 @@ data class Radical(
     @ColumnInfo(name = "symbol") val symbol: String?,
     @ColumnInfo(name = "level") val level: String?,
     @ColumnInfo(name = "symbolImage") val symbolImage: String?
-) : BaseDataTable(symbol, name, null, level, null)
+) : BaseDataTable(symbol, symbolImage,  name, null, level, null)
 
 @Dao
 interface RadicalDao {

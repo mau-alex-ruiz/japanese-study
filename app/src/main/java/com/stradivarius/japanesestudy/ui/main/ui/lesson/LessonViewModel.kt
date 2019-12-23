@@ -4,6 +4,7 @@ import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.ui.main.data.BaseDataTable
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 import com.stradivarius.japanesestudy.ui.main.ui.MainFragment
+import com.stradivarius.japanesestudy.ui.main.utils.AsyncImageLoader
 import java.lang.IllegalArgumentException
 
 internal class LessonViewModel(
