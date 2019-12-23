@@ -85,7 +85,8 @@ class MainActivity : AppCompatActivity() {
 
 
     fun startLessonActivity(menuItem : MenuItem) {
-        if (LocalSessionWrapperImpl.getCheckBoxMap().isEmpty()) {
+        val checkboxMap = LocalSessionWrapperImpl.getCheckBoxMap()
+        if (checkboxMap.isEmpty() || !checkboxMap.values.contains(true)) {
             Snackbar.make(findViewById(R.id.main_container), R.string.need_level_selection, Snackbar.LENGTH_SHORT)
                 .show()
         }

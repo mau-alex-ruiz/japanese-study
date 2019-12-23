@@ -23,7 +23,6 @@ open class BaseDataTable(
     var readingEntry: String? = null,
     var levelEntry: String? = null,
     var radicalsEntry: String? = null
-
 )
 
 /**
@@ -43,6 +42,9 @@ data class Vocabulary(
 interface VocabularyDao {
     @Query("SELECT * FROM vocabulary")
     fun getAll(): List<Vocabulary>
+
+    @Query("SELECT * FROM vocabulary WHERE level IN (:selectedLevels)")
+    fun getSelected(selectedLevels: List<String>) : List<Vocabulary>
 
     @Insert
     fun insertAll(vocabList: List<Vocabulary>)
@@ -67,6 +69,9 @@ interface KanjiDao {
     @Query("SELECT * FROM kanji")
     fun getAll(): List<Kanji>
 
+    @Query("SELECT * FROM kanji WHERE level IN (:selectedLevels)")
+    fun getSelected(selectedLevels: List<String>) : List<Kanji>
+
     @Insert
     fun insertAll(kanjiList: List<Kanji>)
 
@@ -89,6 +94,9 @@ data class Radical(
 interface RadicalDao {
     @Query("SELECT * FROM radicals")
     fun getAll(): List<Radical>
+
+    @Query("SELECT * FROM radicals WHERE level IN (:selectedLevels)")
+    fun getSelected(selectedLevels: List<String>) : List<Radical>
 
     @Insert
     fun insertSingle(radical: Radical)
