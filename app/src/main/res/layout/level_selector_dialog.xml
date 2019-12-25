@@ -29,12 +29,30 @@
             android:layout_height="wrap_content"
             android:splitMotionEvents="false" />
 
-        <Button
-            android:layout_below="@id/level_selector_dialog_recycler"
+        <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:onClick="@{model.onSaveButtonClick}"
-            android:text="@string/button_save" />
+            android:orientation="horizontal"
+            android:weightSum="2"
+            android:layout_below="@id/level_selector_dialog_recycler">
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{model.onCancelButtonClick}"
+                android:text="@string/button_cancel" />
+
+            <Button
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:onClick="@{model.onSaveButtonClick}"
+                android:text="@string/button_save" />
+
+        </LinearLayout>
+
+
 
     </RelativeLayout>
 

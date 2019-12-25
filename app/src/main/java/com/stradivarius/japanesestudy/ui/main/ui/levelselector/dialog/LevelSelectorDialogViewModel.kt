@@ -24,10 +24,18 @@ internal class LevelSelectorDialogViewModel(
         tempCheckBoxMap[view.tag.toString()] = isChecked
     }
 
+    fun onCancelButtonClick(button: View) {
+        dismissDialog(button)
+    }
+
     fun onSaveButtonClick(button: View) {
         for ((key, value) in tempCheckBoxMap) {
             repository.getCheckBoxMap()[key] = value
         }
+        dismissDialog(button)
+    }
+
+    fun dismissDialog(button: View) {
         button.postOnAnimationDelayed({
             dialog.dismiss()
         }, 150)

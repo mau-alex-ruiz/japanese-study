@@ -10,7 +10,6 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.databinding.LevelSelectorDialogBinding
-import com.stradivarius.japanesestudy.ui.main.common.viewmodel.ViewModelFactoryImpl
 import com.stradivarius.japanesestudy.ui.main.data.Levels
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
@@ -56,7 +55,6 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
             layoutManager = viewManager
             adapter = viewAdapter
         }
-
     }
 
     companion object {

@@ -11,6 +11,7 @@
     <string name="kanji_card">Kanji</string>
     <string name="vocabulary_card">Vocabulary</string>
 
+    <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
 
     <string name="need_level_selection">There are no levels selected!</string>
