@@ -13,7 +13,7 @@ internal class LessonActivity : AppCompatActivity() {
         setContentView(R.layout.lesson_activity)
         setupToolbar(lesson_toolbar)
         supportFragmentManager.beginTransaction()
-            .replace(
+            .add(
                 R.id.lesson_container,
                 LessonFragment.newInstance(
                     applicationContext

@@ -16,3 +16,6 @@ internal fun dialogTitleText(textView: TextView, text: String?) {
         textView.text = text
     }
 }
+
+//@BindingAdapter("app:lessonReadingText")
+//internal fun lessonReadingText(textView: TextView, symbolList: List<A>)

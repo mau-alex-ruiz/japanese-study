@@ -8,12 +8,13 @@ import android.widget.CheckBox
 import android.widget.CompoundButton
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
+import com.stradivarius.japanesestudy.ui.main.common.viewmodel.BaseViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
 internal class LevelSelectorDialogViewModel(
     private val repository : LocalSessionWrapperImpl,
     private val dialog: Dialog
-) : ViewModel() {
+) : BaseViewModel() {
 
     val dialogTitle = MutableLiveData<String>()
 

@@ -2,11 +2,12 @@ package com.stradivarius.japanesestudy.ui.main.ui
 
 import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.R
+import com.stradivarius.japanesestudy.ui.main.common.viewmodel.BaseViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 
 internal class MainViewModel(
     private val repository : LocalSessionWrapperImpl
-) : ViewModel() {
+) : BaseViewModel() {
 
     fun kanjiCardTitle() = R.string.kanji_card
 

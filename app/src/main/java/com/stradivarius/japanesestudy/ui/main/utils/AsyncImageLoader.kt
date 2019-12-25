@@ -7,7 +7,7 @@ import android.util.Log
 import com.stradivarius.japanesestudy.ui.main.ui.lesson.LessonAdapter
 import java.lang.Exception
 
-internal class AsyncImageLoader(val holder: LessonAdapter.ImageViewHolder) : AsyncTask<String, Void, Bitmap?>() {
+internal class AsyncImageLoader(private val holder: LessonAdapter.ImageViewHolder) : AsyncTask<String, Void, Bitmap?>() {
 
     override fun doInBackground(vararg urls: String?): Bitmap? {
         val url = urls[0]

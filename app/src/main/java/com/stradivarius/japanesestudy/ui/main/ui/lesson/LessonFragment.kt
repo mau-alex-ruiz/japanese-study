@@ -5,6 +5,7 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
@@ -32,13 +33,13 @@ internal class LessonFragment(context: Context) : BaseToolbarFragment<LessonView
     ): View {
         val rootView = super.onCreateView(inflater, container, savedInstanceState)
         viewManager = LinearLayoutManager(context, LinearLayoutManager.HORIZONTAL, false)
-        viewMainAdapter = LessonAdapter(viewmodel.getSymbolList())
+        viewMainAdapter = LessonAdapter(viewmodel.getSymbolList(), viewmodel)
         recyclerView = rootView.findViewById<RecyclerView>(R.id.lesson_recycler_view).apply {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewMainAdapter
         }
-        val snapHelper = LessonSnapHelper()
+        val snapHelper = LessonSnapHelper(viewmodel)
         recyclerView.addOnScrollListener(object: RecyclerView.OnScrollListener() {
             override fun onScrollStateChanged(recyclerView: RecyclerView, newState: Int) {
                 super.onScrollStateChanged(recyclerView, newState)

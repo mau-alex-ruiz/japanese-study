@@ -1,12 +1,16 @@
 package com.stradivarius.japanesestudy.ui.main.ui.lesson
 
+import android.util.Log
 import android.view.View
+import android.widget.TextView
 import androidx.recyclerview.widget.LinearSnapHelper
 import androidx.recyclerview.widget.RecyclerView
 import kotlin.math.absoluteValue
 import kotlin.math.sign
 
-internal class LessonSnapHelper : LinearSnapHelper() {
+internal class LessonSnapHelper(
+    private val viewmodel: LessonViewModel
+) : LinearSnapHelper() {
 
     var startView: View? = null
 
@@ -19,12 +23,17 @@ internal class LessonSnapHelper : LinearSnapHelper() {
             || startView == null) {
             return RecyclerView.NO_POSITION
         }
-        return if (velocityX.absoluteValue > 3000) {
+        val nextPosition = if (velocityX.absoluteValue > 3000) {
             layoutManager.getPosition(startView!!) + velocityX.sign
         }
         else {
             layoutManager.getPosition(startView!!)
         }
-    }
+        if (nextPosition < 0 || nextPosition >= viewmodel.getSymbolList().size) {
+            return RecyclerView.NO_POSITION
+        }
+        viewmodel.setNextPosition(nextPosition)
+        return nextPosition
 
+    }
 }

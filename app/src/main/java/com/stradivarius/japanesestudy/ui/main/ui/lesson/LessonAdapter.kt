@@ -5,9 +5,6 @@ import android.view.LayoutInflater
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
-import androidx.lifecycle.MutableLiveData
-import androidx.lifecycle.Observer
-import androidx.lifecycle.Transformations
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.data.BaseDataTable
@@ -15,7 +12,8 @@ import com.stradivarius.japanesestudy.ui.main.utils.AsyncImageLoader
 import java.lang.IllegalArgumentException
 
 internal class LessonAdapter(
-    private val data: List<BaseDataTable>
+    private val data: List<BaseDataTable>,
+    private val viewmodel: LessonViewModel
 ) : RecyclerView.Adapter<RecyclerView.ViewHolder>() {
 
     class TextViewHolder(private val textView: TextView) : RecyclerView.ViewHolder(textView) {
@@ -25,7 +23,6 @@ internal class LessonAdapter(
     }
 
     class ImageViewHolder(private val imageView: ImageView) : RecyclerView.ViewHolder(imageView) {
-
         fun loadImage(imageURL: String, holder: ImageViewHolder) {
             AsyncImageLoader(holder).execute(imageURL)
         }
@@ -49,7 +46,7 @@ internal class LessonAdapter(
                     .inflate(R.layout.lesson_image_layout, parent, false) as ImageView
                 ImageViewHolder(imageView)
             }
-            else -> throw IllegalArgumentException("")
+            else -> throw IllegalArgumentException("No such viewType.")
         }
     }
 
@@ -69,13 +66,11 @@ internal class LessonAdapter(
         }
     }
 
-    override fun getItemCount(): Int {
-        return data.size
-    }
+    override fun getItemCount(): Int = data.size
 
     companion object {
-        const val TEXT_VIEW = 0
-        const val IMAGE_VIEW = 1
+        private const val TEXT_VIEW = 0
+        private const val IMAGE_VIEW = 1
     }
 
 }
