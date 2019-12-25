@@ -15,6 +15,9 @@
 
     <string name="need_level_selection">There are no levels selected!</string>
 
+    <string name="lesson_name_text">Name: %1$s</string>
+    <string name="lesson_reading_text">Reading: %1$s</string>
+
 
 
 </resources>

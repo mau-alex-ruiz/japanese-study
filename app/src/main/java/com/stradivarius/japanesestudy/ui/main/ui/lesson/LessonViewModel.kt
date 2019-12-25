@@ -1,5 +1,6 @@
 package com.stradivarius.japanesestudy.ui.main.ui.lesson
 
+import android.content.res.Resources
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.Observer
 import androidx.lifecycle.ViewModel

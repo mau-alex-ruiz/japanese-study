@@ -43,6 +43,9 @@ interface VocabularyDao {
     @Query("SELECT * FROM vocabulary")
     fun getAll(): List<Vocabulary>
 
+    @Query("SELECT * FROM vocabulary WHERE level IS (:selectedLevel)")
+    fun getSelected(selectedLevel: String) : List<Vocabulary>
+
     @Query("SELECT * FROM vocabulary WHERE level IN (:selectedLevels) ORDER BY RANDOM()")
     fun getSelected(selectedLevels: List<String>) : List<Vocabulary>
 
@@ -68,6 +71,9 @@ data class Kanji(
 interface KanjiDao {
     @Query("SELECT * FROM kanji")
     fun getAll(): List<Kanji>
+
+    @Query("SELECT * FROM kanji WHERE level IS (:selectedLevel)")
+    fun getSelected(selectedLevel: String) : List<Kanji>
 
     @Query("SELECT * FROM kanji WHERE level IN (:selectedLevels) ORDER BY RANDOM()")
     fun getSelected(selectedLevels: List<String>) : List<Kanji>
@@ -95,6 +101,9 @@ interface RadicalDao {
     @Query("SELECT * FROM radicals")
     fun getAll(): List<Radical>
 
+    @Query("SELECT * FROM radicals WHERE level IS (:selectedLevel)")
+    fun getSelected(selectedLevel: String) : List<Radical>
+
     @Query("SELECT * FROM radicals WHERE level IN (:selectedLevels) ORDER BY RANDOM()")
     fun getSelected(selectedLevels: List<String>) : List<Radical>
 
@@ -116,9 +125,9 @@ internal class Levels {
     companion object {
         val levelCategories = listOf("Pleasant", "Painful", "Death", "Hell", "Paradise", "Reality")
 
-        val levels = mutableMapOf<String, List<Int>>().apply {
+        val levels = mutableMapOf<String, List<String>>().apply {
             levelCategories.forEachIndexed { idx, category ->
-                this[category] = listOf(1,2,3,4,5,6,7,8,9,10).mapIndexed{i, _ -> idx*10 + i + 1}
+                this[category] = listOf(1,2,3,4,5,6,7,8,9,10).mapIndexed{i, _ -> (idx*10 + i + 1).toString()}
             }
         }
     }
