@@ -23,7 +23,7 @@ internal class MainFragment(context: Context) : BaseFragment<MainViewModel, Main
         showFragment(
             R.id.main_container,
             LevelSelectorMainFragment.newInstance(cardType),
-            "FromMainFragment"
+            "LevelSelectorFragment"
         )
     }
 

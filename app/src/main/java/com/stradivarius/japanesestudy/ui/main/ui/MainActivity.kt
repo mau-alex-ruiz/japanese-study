@@ -42,6 +42,7 @@ class MainActivity : AppCompatActivity() {
         return true
     }
 
+
     private fun showMainFragment() {
         supportFragmentManager.beginTransaction()
             .replace(
@@ -62,20 +63,29 @@ class MainActivity : AppCompatActivity() {
             .commitNow()
     }
 
+    override fun onBackPressed() {
+        handleMainMenuReturn()
+        super.onBackPressed()
+    }
+
     private fun setupToolbar(toolbar: Toolbar) {
         setTitle(R.string.app_name)
         setSupportActionBar(toolbar)
         toolbar.setTitleTextColor(resources.getColor(R.color.cardview_light_background))
         toolbar.setNavigationOnClickListener {
-            with(supportFragmentManager) {
-                if (this.fragments[this.backStackEntryCount - 1].tag == "FromMainFragment") {
-                    setTitle(R.string.app_name)
-                    supportActionBar?.setDisplayHomeAsUpEnabled(false)
-                    supportActionBar?.setDisplayShowHomeEnabled(false)
-                    setStartActionVisibility(false)
-                    LocalSessionWrapperImpl.clearMaps()
-                }
-                this.popBackStack()
+            handleMainMenuReturn()
+            supportFragmentManager.popBackStack()
+        }
+    }
+
+    private fun handleMainMenuReturn() {
+        with(supportFragmentManager) {
+            if (this.fragments[this.backStackEntryCount - 1].tag == "LevelSelectorFragment") {
+                setTitle(R.string.app_name)
+                supportActionBar?.setDisplayHomeAsUpEnabled(false)
+                supportActionBar?.setDisplayShowHomeEnabled(false)
+                setStartActionVisibility(false)
+                LocalSessionWrapperImpl.clearMaps()
             }
         }
     }
