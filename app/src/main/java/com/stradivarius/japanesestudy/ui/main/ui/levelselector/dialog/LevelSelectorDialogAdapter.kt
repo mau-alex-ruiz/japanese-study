@@ -1,24 +1,11 @@
 package com.stradivarius.japanesestudy.ui.main.ui.levelselector.dialog
 
-import android.app.Dialog
-import android.util.Log
-import android.view.LayoutInflater
-import android.view.View
 import android.view.ViewGroup
-import android.widget.CheckBox
-import android.widget.CompoundButton
-import android.widget.LinearLayout
-import android.widget.RelativeLayout
-import androidx.core.view.marginBottom
-import androidx.fragment.app.DialogFragment
 import androidx.recyclerview.widget.RecyclerView
-import com.stradivarius.japanesestudy.R
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 import com.stradivarius.japanesestudy.ui.main.ui.MainFragment
-import kotlinx.android.synthetic.main.level_selector_checkbox.view.*
 import kotlinx.android.synthetic.main.level_selector_dialog_custom_view.view.*
 import java.lang.IllegalArgumentException
-import kotlin.reflect.jvm.internal.impl.util.Check
 
 internal class LevelSelectorDialogAdapter(
     private val data: List<String>,

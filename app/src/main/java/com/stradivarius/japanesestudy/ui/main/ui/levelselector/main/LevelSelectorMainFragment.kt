@@ -55,7 +55,7 @@ internal class LevelSelectorMainFragment(val cardType: Int)
             MainFragment.RADICAL_CARD -> R.string.radicals_card
             else -> throw IllegalArgumentException("Incorrect card type.")
         }
-        activity?.setTitle(title)
+        activity?.title = getString(R.string.level_selector_title).format(getString(title))
         (activity as MainActivity).setStartActionVisibility(true)
     }
 

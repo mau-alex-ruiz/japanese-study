@@ -11,11 +11,16 @@
     <string name="kanji_card">Kanji</string>
     <string name="vocabulary_card">Vocabulary</string>
 
+    <string name="level_selector_title">%1$s Levels</string>
+
+    <!-- Level Selector Snackbar -->
+    <string name="need_level_selection">There are no levels selected!</string>
+
+    <!-- Level Selector Dialog Buttons -->
     <string name="button_cancel">Cancel</string>
     <string name="button_save">Save</string>
 
-    <string name="need_level_selection">There are no levels selected!</string>
-
+    <!-- Lesson Strings -->
     <string name="lesson_name_text">Name: %1$s</string>
     <string name="lesson_reading_text">Reading: %1$s</string>
 

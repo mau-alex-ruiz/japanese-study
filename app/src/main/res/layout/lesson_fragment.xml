@@ -19,10 +19,7 @@
             android:layout_weight="3"
             android:orientation="horizontal" />
 
-        <View
-            android:layout_width="match_parent"
-            android:layout_height="3dp"
-            android:background="?android:attr/dividerHorizontal"/>
+        <View style="@style/Divider"/>
 
         <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"

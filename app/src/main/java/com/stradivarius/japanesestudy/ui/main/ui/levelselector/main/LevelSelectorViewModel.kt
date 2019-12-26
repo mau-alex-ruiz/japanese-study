@@ -1,6 +1,5 @@
 package com.stradivarius.japanesestudy.ui.main.ui.levelselector.main
 
-import androidx.lifecycle.ViewModel
 import com.stradivarius.japanesestudy.ui.main.common.viewmodel.BaseViewModel
 import com.stradivarius.japanesestudy.ui.main.repository.LocalSessionWrapperImpl
 

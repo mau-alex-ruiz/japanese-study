@@ -6,6 +6,7 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.DialogFragment
+import androidx.recyclerview.widget.DividerItemDecoration
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.stradivarius.japanesestudy.R
@@ -36,6 +37,7 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
             container,
             false
         )
+        setStyle(STYLE_NO_TITLE, R.style.AppTheme)
         viewmodel = LevelSelectorDialogViewModel(LocalSessionWrapperImpl, dialog!!)
         viewmodel.dialogTitle.postValue(levelCategory)
         setupAdapter()
@@ -54,7 +56,9 @@ internal class LevelSelectorDialogFragment : DialogFragment() {
             setHasFixedSize(true)
             layoutManager = viewManager
             adapter = viewAdapter
+
         }
+        recyclerView.addItemDecoration(DividerItemDecoration(context, DividerItemDecoration.VERTICAL))
     }
 
     companion object {

@@ -7,4 +7,4 @@
     android:layout_height="match_parent"
     android:gravity="center"
     app:autoSizeTextType="uniform"
-    android:textColor="@color/colorPrimaryDark" />
+    android:textColor="@color/black" />
