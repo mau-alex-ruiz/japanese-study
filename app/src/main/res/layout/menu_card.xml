@@ -4,6 +4,7 @@
     <data>
         <variable name="model" type="com.stradivarius.japanesestudy.ui.main.ui.MainViewModel" />
         <variable name="cardType" type="Integer" />
+        <variable name="cardImage" type="Integer" />
     </data>
 
     <androidx.cardview.widget.CardView
@@ -13,10 +14,10 @@
         android:id="@+id/card_view"
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_margin="10dp"
+        android:layout_margin="15dp"
         android:layout_weight="1"
         android:foreground="?android:attr/selectableItemBackground"
-        card_view:cardCornerRadius="4dp"
+        card_view:cardCornerRadius="10dp"
         >
 
         <LinearLayout
@@ -31,7 +32,8 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:layout_gravity="center"
-                    android:scaleType="centerCrop"
+                    android:scaleType="fitXY"
+                    app:menuCardImage="@{cardImage}"
                     />
 
                 <LinearLayout

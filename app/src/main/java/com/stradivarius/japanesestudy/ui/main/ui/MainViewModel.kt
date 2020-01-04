@@ -15,4 +15,6 @@ internal class MainViewModel(
 
     fun radicalCardTitle() = R.string.radicals_card
 
+    fun kanjiCardImage() = R.drawable.kanji_card_image
+
 }

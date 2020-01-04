@@ -11,7 +11,7 @@
         android:id="@+id/card_list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:weightSum="4"
+        android:weightSum="3"
         android:orientation="vertical"
         android:splitMotionEvents="false">
 
@@ -20,25 +20,28 @@
             layout="@layout/menu_card"
             app:model="@{model}"
             app:cardType="@{model.vocabCardTitle()}"
+            app:cardImage="@{model.kanjiCardImage()}"
             />
 
         <include
             android:id="@+id/kanji_card"
             layout="@layout/menu_card"
             app:cardType="@{model.kanjiCardTitle()}"
+            app:cardImage="@{model.kanjiCardImage()}"
             />
 
         <include
             android:id="@+id/radicals_card"
             layout="@layout/menu_card"
             app:cardType="@{model.radicalCardTitle()}"
+            app:cardImage="@{model.kanjiCardImage()}"
             />
 
-        <include
-            android:id="@+id/duo_vocab_card"
-            layout="@layout/menu_card"
-            app:cardType="@{model.radicalCardTitle()}"
-            />
+<!--        <include-->
+<!--            android:id="@+id/duo_vocab_card"-->
+<!--            layout="@layout/menu_card"-->
+<!--            app:cardType="@{model.radicalCardTitle()}"-->
+<!--            />-->
 
     </LinearLayout>
 </layout>
