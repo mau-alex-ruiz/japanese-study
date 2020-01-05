@@ -25,10 +25,6 @@ internal class LevelSelectorDialogAdapter(
     override fun onBindViewHolder(holder: MyViewHolder, position: Int) {
         val level = data[position]
 
-        holder.view.setOnClickListener {
-            holder.view.level_selector_checkbox.performClick()
-        }
-
         holder.view.level_selector_checkbox.apply {
             text = level
             tag = level
@@ -46,7 +42,18 @@ internal class LevelSelectorDialogAdapter(
                 MainFragment.RADICAL_CARD -> repository.database.radicalDao().getSelected(level)
                 else -> throw IllegalArgumentException("No such card category.")
             }
-            text =  symbolList.mapNotNull { it.symbolEntry }.joinToString(", ")
+            text = symbolList.mapNotNull { it.symbolEntry }.joinToString(", ")
+                .ifEmpty {
+                    holder.view.dialog_view.foreground = null
+                    holder.view.level_selector_checkbox.isEnabled = false
+                    "None"
+                }
+        }
+
+        if (holder.view.level_selector_checkbox.isEnabled) {
+            holder.view.setOnClickListener {
+                holder.view.level_selector_checkbox.performClick()
+            }
         }
 
 }
